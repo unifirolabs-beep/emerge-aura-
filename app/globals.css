@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-serif), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-sans), Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --color-gold-200: #faebc7;
+  --color-gold-300: #f5dfa8;
+  --color-gold-400: #e3b873;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #b8932c;
+
+  --color-forest-950: #050e0b;
+  --color-forest-900: #0a1b14;
+  --color-forest-800: #10291f;
+  --color-forest-700: #183a2c;
+
+  --color-cream-50: #fdfcf9;
+  --color-cream-100: #f4efe6;
+  --color-cream-200: #e5ded2;
+  --color-cream-300: #d3c7b5;
+}
+
+:root {
+  --background: #060d0a;
+  --foreground: #f4efe6;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Luxury Editorial Typography utilities */
+.font-editorial {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+}
+
+/* Subtle Film Grain Overlay */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Vignette overlay */
+.vignette-radial {
+  background: radial-gradient(circle at 50% 50%, rgba(6, 13, 10, 0) 35%, rgba(4, 9, 7, 0.72) 100%);
+}
+
+/* Text glow / soft contrast */
+.text-shadow-hero {
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.75), 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.text-shadow-subtle {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #060d0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a382c;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a5543;
+}
