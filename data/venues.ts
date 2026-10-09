@@ -23,7 +23,7 @@ export const venuesData: VenueItem[] = [
     name: "Bharat Nivas",
     badge: "MAIN CONCLAVE VENUE",
     days: "Days 2 & 3",
-    dates: "24–25 October 2026",
+    dates: "1–2 December 2026",
     addressTitle: "Bharat Nivas, Auroville",
     addressLines: [
       "2R43+MZX, Auroville",
@@ -53,7 +53,7 @@ export const venuesData: VenueItem[] = [
     name: "Pondicherry University",
     badge: "OPENING DAY & EXPO",
     days: "Day 1",
-    dates: "23 October 2026",
+    dates: "28 October 2026",
     addressTitle: "Pondicherry University Campus",
     addressLines: [
       "R.V. Nagar, Kalapet",

@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 
-// Conclave Date: 23 October 2026, 09:00:00 IST (Asia/Kolkata)
-const CONCLAVE_TIMESTAMP = new Date("2026-10-23T09:00:00+05:30").getTime();
+// Conclave Date: 28 October 2026, 09:00:00 IST (Asia/Kolkata)
+const CONCLAVE_TIMESTAMP = new Date("2026-10-28T09:00:00+05:30").getTime();
 
 interface TimeValues {
   days: string;
@@ -141,7 +141,7 @@ export default function EventCountdown() {
             transition={{ duration: 0.9, delay: 0.45, ease: "easeOut" }}
             className="w-full mt-14 sm:mt-16 lg:mt-20 pt-8"
             role="region"
-            aria-label="Event countdown to October 23, 2026"
+            aria-label="Event countdown to October 28, 2026"
           >
             {timeLeft.isCompleted ? (
               <div className="py-6 px-8 rounded-xl border border-[#C59B4E]/30 bg-[#EFE9DD]/60">

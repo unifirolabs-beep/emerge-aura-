@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://emergeauro.org"),
   title: "EMERGE AURO — India's First Conscious Capital Conclave",
   description:
-    "India's First Conscious Capital Conclave. Businesses that create value for people, planet and the future. 23–25 October 2026, Pondicherry University & Auroville.",
+    "India's First Conscious Capital Conclave. Businesses that create value for people, planet and the future. 28 October, 1–2 December 2026, Pondicherry University & Auroville.",
   keywords: [
     "Emerge Auro",
     "Conscious Capital Conclave",
