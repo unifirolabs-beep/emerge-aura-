@@ -144,7 +144,7 @@ export default function AboutEmerge() {
               </div>
               <div className="text-left">
                 <span className="font-editorial text-[20px] sm:text-[22px] font-medium text-[#10251D] leading-none block">
-                  23–25 October 2026
+                  28 Oct, 1–2 Dec 2026
                 </span>
                 <span className="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-[#8C733E] font-medium mt-1 block">
                   Pondicherry University & Auroville

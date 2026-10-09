@@ -64,7 +64,7 @@ export const aboutData: AboutContentData = {
       number: "03",
       label: "THE EXPERIENCE",
       paragraph:
-        "The conclave opens on 23 October at Pondicherry University, where 200+ student and school innovators compete before the delegates arrive. It moves to Bharat Nivas, Auroville, for two days of startup showcase, investor deal lounge, founder masterclasses, RDI Fund and policy clinics, and closes with signed LOIs and MoUs witnessed by government.",
+        "The conclave opens on 28 October at Pondicherry University, where 200+ student and school innovators compete before the delegates arrive. It moves to Bharat Nivas, Auroville, for two days of startup showcase, investor deal lounge, founder masterclasses, RDI Fund and policy clinics, and closes with signed LOIs and MoUs witnessed by government.",
     },
     {
       number: "04",
@@ -81,8 +81,8 @@ export const aboutData: AboutContentData = {
   },
   eventInfo: {
     date: {
-      days: "23–25",
-      monthYear: "OCTOBER 2026",
+      days: "28 Oct, 1–2 Dec",
+      monthYear: "2026",
     },
     venue: {
       title: "PONDICHERRY UNIVERSITY",

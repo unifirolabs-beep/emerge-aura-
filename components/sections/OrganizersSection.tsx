@@ -238,7 +238,7 @@ export default function OrganizersSection() {
                 </span>
               </motion.div>
 
-              <div className="flex flex-col md:flex-row items-stretch md:items-center">
+              <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] lg:flex lg:flex-row items-stretch lg:items-center">
                 {/* Mobile Number Indicator */}
                 <div className="sm:hidden flex items-center gap-2.5 pt-5 px-6 pb-1">
                   <span className="w-8 h-8 rounded-full bg-[#FAF7F0] border border-[#C5A880]/90 flex items-center justify-center text-[12px] font-semibold text-[#0F2D25] shadow-2xs">
@@ -252,7 +252,7 @@ export default function OrganizersSection() {
                 {/* Left: Dedicated Logo Area (Main visual element with elevated logo container) */}
                 <motion.div
                   variants={shouldReduceMotion ? undefined : logoVariants}
-                  className="w-full md:w-[250px] lg:w-[270px] shrink-0 p-6 sm:p-7 md:p-6 lg:p-7 flex items-center justify-center"
+                  className="w-full md:col-start-1 md:row-start-1 md:row-span-2 lg:col-auto lg:row-auto lg:w-[270px] shrink-0 p-6 sm:p-7 md:p-6 lg:p-7 flex items-center justify-center"
                 >
                   <div className="relative w-full h-[130px] sm:h-[140px] md:h-[150px] rounded-[16px] bg-[#FAF8F3] border border-[#EADBCA]/90 shadow-[0_2px_12px_rgba(0,0,0,0.025),inset_0_1px_2px_rgba(255,255,255,0.8)] flex items-center justify-center p-4 sm:p-5 transition-all duration-300 group-hover:border-[#C5A880] group-hover:shadow-[0_4px_16px_rgba(197,168,128,0.12)] group-hover:-translate-y-0.5">
                     {/* Subtle inner highlight */}
@@ -273,7 +273,7 @@ export default function OrganizersSection() {
 
                 {/* Vertical Divider (Desktop) */}
                 <div
-                  className="hidden md:block w-[1px] bg-[#EBE4D3] self-stretch my-6 lg:my-8"
+                  className="hidden lg:block w-[1px] bg-[#EBE4D3] self-stretch my-6 lg:my-8"
                   aria-hidden="true"
                 />
 
@@ -286,7 +286,7 @@ export default function OrganizersSection() {
                 {/* Center: Organizer Content (~55% width) */}
                 <motion.div
                   variants={shouldReduceMotion ? undefined : contentVariants}
-                  className="flex-1 p-6 md:py-7 md:px-8"
+                  className="flex-1 md:col-start-2 md:row-start-1 lg:col-auto lg:row-auto p-6 md:pt-8 md:pb-2 md:px-8 lg:py-7 lg:px-8"
                 >
                   <h3 className="font-editorial text-[24px] sm:text-[27px] font-bold text-[#0F2D25] leading-snug tracking-tight mb-3">
                     {item.name}
@@ -301,7 +301,7 @@ export default function OrganizersSection() {
                 {/* Right: Action Button (~20% width on desktop) */}
                 <motion.div
                   variants={shouldReduceMotion ? undefined : buttonVariants}
-                  className="shrink-0 p-6 md:pr-8 lg:pr-10 md:pl-2 flex items-center justify-start md:justify-end self-stretch md:self-auto"
+                  className="shrink-0 md:col-start-2 md:row-start-2 lg:col-auto lg:row-auto p-6 md:pt-2 md:pb-8 md:px-8 lg:p-6 lg:pr-10 lg:pl-2 flex items-center justify-start md:justify-start lg:justify-end self-stretch md:self-auto"
                 >
                   <a
                     href={item.url}

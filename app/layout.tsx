@@ -23,21 +23,58 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://emergeaura.emergestartupfest.com"),
   title: "EMERGE AURA — India's First Conscious Capital Conclave",
   description:
-    "India's First Conscious Capital Conclave. Businesses that create value for people, planet and the future. 23–25 October 2026, Pondicherry University & Auroville.",
+    "India's First Conscious Capital Conclave in Auroville and Pondicherry University. We bring together impact investing, conscious business, and startup ecosystems. Join us in Mangalore, Auroville, and beyond for sustainable value creation.",
   keywords: [
     "Emerge Aura",
     "Conscious Capital Conclave",
     "Auroville",
+    "Mangalore startups",
     "Pondicherry University",
     "Impact Investing",
     "Conscious Business",
     "Sustainable Summit",
+    "Venture Capital",
+    "Founders",
+    "India startups",
   ],
+  authors: [{ name: "Emerge Aura Team" }],
+  creator: "Emerge Aura",
+  publisher: "Emerge Aura",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     title: "EMERGE AURA — India's First Conscious Capital Conclave",
     description:
-      "Businesses that create value for people, planet, and the future. Pondicherry University & Auroville.",
-    images: [{ url: "/images/hero/emerge-hero-01.webp" }],
+      "Join India's First Conscious Capital Conclave. Businesses that create value for people, planet, and the future. From Emerge Mangalore to Auroville.",
+    images: [
+      {
+        url: "/images/hero/emerge-hero-01.webp",
+        width: 1200,
+        height: 630,
+        alt: "EMERGE AURO - India's First Conscious Capital Conclave",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EMERGE AURO — Conscious Capital Conclave",
+    description:
+      "Join India's First Conscious Capital Conclave. Businesses that create value for people, planet, and the future. From Emerge Mangalore to Auroville.",
+    images: ["/images/hero/emerge-hero-01.webp"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 

@@ -30,7 +30,7 @@ export const conclaveJourneyData = {
     {
       dayNumber: "1",
       dayLabel: "Day 1",
-      date: "Fri 23 Oct",
+      date: "Wed 28 Oct",
       title: "SUBMERGE",
       location: "Pondicherry University",
       theme: "grounding and immersion before the deal-making days begin.",
@@ -87,7 +87,7 @@ export const conclaveJourneyData = {
     {
       dayNumber: "2",
       dayLabel: "Day 2",
-      date: "Sat 24 Oct",
+      date: "Tue 1 Dec",
       title: "MERGE",
       location: "Bharat Nivas, Auroville",
       theme: "co-creation and deal flow.",
@@ -150,7 +150,7 @@ export const conclaveJourneyData = {
     {
       dayNumber: "3",
       dayLabel: "Day 3",
-      date: "Sun 25 Oct",
+      date: "Wed 2 Dec",
       title: "EMERGE",
       location: "Bharat Nivas, Auroville",
       theme: "commitments and close.",
