@@ -4,7 +4,7 @@ export interface OrganizerItem {
   name: string;
   logo: string;
   logoAlt: string;
-  url: string;
+  url?: string;
   buttonText?: string;
   paragraphs: string[];
 }
@@ -67,8 +67,6 @@ export const organizersData: OrganizerItem[] = [
     name: "UTTHAN",
     logo: "/organizerslogos/UTTHAN.png",
     logoAlt: "UTTHAN Logo",
-    url: "https://emergeauro26.zohobackstage.in/EmergeAuro",
-    buttonText: "Visit Website",
     paragraphs: [
       "Upscaling Tier 2 and 3 Colleges for the Holistic Advancement of Nation — is a national programme with the Office of the Principal Scientific Advisor to the Government of India, closing the research and innovation gap at the colleges where most of India studies: R&D partnerships and IPR support on one pillar, physical innovation hubs and incubation on the other, with a nationwide institutional research-maturity assessment routing each college to its own roadmap.",
     ],

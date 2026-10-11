@@ -286,7 +286,9 @@ export default function OrganizersSection() {
                 {/* Center: Organizer Content (~55% width) */}
                 <motion.div
                   variants={shouldReduceMotion ? undefined : contentVariants}
-                  className="flex-1 md:col-start-2 md:row-start-1 lg:col-auto lg:row-auto p-6 md:pt-8 md:pb-2 md:px-8 lg:py-7 lg:px-8"
+                  className={`flex-1 md:col-start-2 md:row-start-1 lg:col-auto lg:row-auto p-6 lg:py-7 lg:px-8 ${
+                    item.url ? "md:pt-8 md:pb-2 md:px-8" : "md:py-8 md:px-8"
+                  }`}
                 >
                   <h3 className="font-editorial text-[24px] sm:text-[27px] font-bold text-[#0F2D25] leading-snug tracking-tight mb-3">
                     {item.name}
@@ -299,20 +301,22 @@ export default function OrganizersSection() {
                 </motion.div>
 
                 {/* Right: Action Button (~20% width on desktop) */}
-                <motion.div
-                  variants={shouldReduceMotion ? undefined : buttonVariants}
-                  className="shrink-0 md:col-start-2 md:row-start-2 lg:col-auto lg:row-auto p-6 md:pt-2 md:pb-8 md:px-8 lg:p-6 lg:pr-10 lg:pl-2 flex items-center justify-start md:justify-start lg:justify-end self-stretch md:self-auto"
-                >
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 rounded-full border border-[#C5A880]/90 text-[#0F2D25] bg-[#FAF7F0]/40 hover:bg-[#C5A880] hover:text-[#FFFFFF] transition-all duration-300 text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.08em] uppercase shadow-2xs group/btn active:scale-95 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880]"
+                {item.url && (
+                  <motion.div
+                    variants={shouldReduceMotion ? undefined : buttonVariants}
+                    className="shrink-0 md:col-start-2 md:row-start-2 lg:col-auto lg:row-auto p-6 md:pt-2 md:pb-8 md:px-8 lg:p-6 lg:pr-10 lg:pl-2 flex items-center justify-start md:justify-start lg:justify-end self-stretch md:self-auto"
                   >
-                    <span>{item.buttonText || "VISIT WEBSITE"}</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1 text-current" />
-                  </a>
-                </motion.div>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 rounded-full border border-[#C5A880]/90 text-[#0F2D25] bg-[#FAF7F0]/40 hover:bg-[#C5A880] hover:text-[#FFFFFF] transition-all duration-300 text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.08em] uppercase shadow-2xs group/btn active:scale-95 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880]"
+                    >
+                      <span>{item.buttonText || "VISIT WEBSITE"}</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1 text-current" />
+                    </a>
+                  </motion.div>
+                )}
               </div>
             </motion.div>
           ))}
