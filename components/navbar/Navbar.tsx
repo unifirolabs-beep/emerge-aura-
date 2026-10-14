@@ -125,7 +125,7 @@ export default function Navbar() {
             
             {/* Primary CTA: REGISTER NOW → */}
             <a
-              href="https://emergeauro26.zohobackstage.in/EmergeAuro"
+              href="https://forms.zohopublic.in/infosectio1/form/ClientDetails/formperma/Ou2moWIn4JWNQPOqsPB0tHxOEBFwqaz3oXxgB1h3Sms"
               target="_blank"
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[12px] sm:text-[13px] font-semibold tracking-[0.12em] uppercase transition-all duration-300 shadow-md hover:scale-[1.03] active:scale-[0.98] group ${
@@ -232,7 +232,7 @@ export default function Navbar() {
                 <span>SIGN IN</span>
               </button>
               <a
-                href="https://emergeauro26.zohobackstage.in/EmergeAuro"
+                href="https://forms.zohopublic.in/infosectio1/form/ClientDetails/formperma/Ou2moWIn4JWNQPOqsPB0tHxOEBFwqaz3oXxgB1h3Sms"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
