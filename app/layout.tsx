@@ -20,12 +20,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://emergeaura.emergestartupfest.com"),
-  title: "EMERGE AURA — India's First Conscious Capital Conclave",
+  metadataBase: new URL("https://emergeauro.emergestartupfest.com"),
+  title: "EMERGE AURO — India's First Conscious Capital Conclave",
   description:
     "India's First Conscious Capital Conclave in Auroville and Pondicherry University. We bring together impact investing, conscious business, and startup ecosystems. Join us in Mangalore, Auroville, and beyond for sustainable value creation.",
   keywords: [
-    "Emerge Aura",
+    "Emerge Auro",
     "Conscious Capital Conclave",
     "Auroville",
     "Mangalore startups",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "EMERGE AURA — India's First Conscious Capital Conclave",
+    title: "EMERGE AURO — India's First Conscious Capital Conclave",
     description:
       "Join India's First Conscious Capital Conclave. Businesses that create value for people, planet, and the future. From Emerge Mangalore to Auroville.",
     images: [

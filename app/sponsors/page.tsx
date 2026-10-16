@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Navbar from "@/components/navbar/Navbar";
 import SponsorsPageSection from "@/components/sections/SponsorsPageSection";
+import OrganizerLogosSection from "@/components/sections/OrganizerLogosSection";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -18,6 +19,7 @@ export default function SponsorsPage() {
 
       <main>
         <SponsorsPageSection />
+        <OrganizerLogosSection />
       </main>
 
       <footer className="relative border-t border-white/10 bg-[#040a08] py-14 px-4 sm:px-8 lg:px-12 text-[#e5ded2]/70 text-sm">
