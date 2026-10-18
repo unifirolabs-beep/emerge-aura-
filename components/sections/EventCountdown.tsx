@@ -79,7 +79,7 @@ export default function EventCountdown() {
   return (
     <section
       aria-label="Conclave Introduction and Countdown"
-      className="relative w-full bg-[#F5F1E8] text-[#112019] py-24 sm:py-28 lg:py-36 overflow-hidden transition-colors"
+      className="relative w-full bg-[#F5F1E8] text-[#112019] py-10 overflow-hidden transition-colors"
     >
       <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-16">
         <motion.div

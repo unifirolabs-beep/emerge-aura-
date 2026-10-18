@@ -36,18 +36,6 @@ export default function Footer() {
               leaders, institutions, entrepreneurs, and thinkers to foster
               sustainable growth, ethical innovation, and social impact.
             </p>
-
-            {/* Quick Conclave Meta Chips */}
-            <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 text-xs font-sans text-[#073B2A]/85 mb-7">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EADBCA]/60 border border-[#C5A880]/40">
-                <Calendar className="w-3.5 h-3.5 text-[#C89B3C]" />
-                <span className="font-medium">1–3 December 2026</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EADBCA]/60 border border-[#C5A880]/40">
-                <MapPin className="w-3.5 h-3.5 text-[#C89B3C]" />
-                <span className="font-medium">Pondicherry & Auroville</span>
-              </div>
-            </div>
           </div>
 
           {/* Column 2: Conclave Navigation (lg:col-span-2 or 3) */}
@@ -182,15 +170,6 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-
-            <div className="p-4 rounded-xl bg-[#FAF8F3] border border-[#EADBCA]/80">
-              <p className="text-[11.5px] uppercase tracking-[0.16em] text-[#8C733E] font-bold font-sans mb-1">
-                Conclave Inquiries
-              </p>
-              <p className="text-xs text-[#073B2A]/80 leading-relaxed">
-                Have questions regarding registration, partnerships or delegations? Write to us via our contact form.
-              </p>
-            </div>
           </div>
         </div>
 

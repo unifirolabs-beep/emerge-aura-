@@ -280,9 +280,7 @@ export default function OrganizersSection() {
                         {leadOrganizer.name}
                       </h3>
                       <div className="space-y-3.5 font-sans text-[15px] sm:text-[15.5px] leading-[1.75] text-[#243E33]/90 font-normal">
-                        {leadOrganizer.paragraphs.map((paragraph, pIdx) => (
-                          <p key={pIdx}>{paragraph}</p>
-                        ))}
+                        <p>{leadOrganizer.paragraphs}</p>
                       </div>
                     </div>
                   </div>
@@ -334,9 +332,7 @@ export default function OrganizersSection() {
 
                     {/* Description Paragraphs */}
                     <div className="space-y-3 font-sans text-[14px] sm:text-[14.5px] leading-[1.72] text-[#243E33]/90 font-normal flex-1 mb-6">
-                      {item.paragraphs.map((paragraph, pIdx) => (
-                        <p key={pIdx}>{paragraph}</p>
-                      ))}
+                      <p>{item.paragraphs}</p>
                     </div>
 
                     {/* Card Footer: Action Button */}

@@ -23,7 +23,7 @@ export const stakeholdersData: StakeholderItem[] = [
     number: "02",
     title: "Industries",
     description: "Discover the next generation of ideas and businesses.",
-    image: "/images/stakeholders/stakeholder-02-industries.jpg",
+    image: "/images/stakeholders/industry.jpg",
     alt: "Sustainable timber architecture and ecological industrial innovation",
     iconType: "industries",
   },
