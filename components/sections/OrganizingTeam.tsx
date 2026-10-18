@@ -56,13 +56,6 @@ const organizers = [
     image: "/organizers/kishore.png", 
     gradient: "from-[#24B96F] to-[#C7F23A]" 
   },
-  { 
-    name: "Balaji Thiru", 
-    role: "Founder & Director –", 
-    org: "Village Technology School (VTS),\nYumitu Robotics Private Limited", 
-    image: "/organizers/balaji thiru.png", 
-    gradient: "from-[#1688FF] to-[#2BC8D9]" 
-  },
 ];
 
 export default function OrganizingTeam() {

@@ -113,49 +113,7 @@ export default function StakeholderSection() {
         />
       </motion.svg>
 
-      {/* 3. SUBTLE FAINT BOTANICAL LINE-ART SILHOUETTES (Non-intrusive vector art, opacity ~0.05) */}
-      {/* Upper-left subtle botanical branch silhouette */}
-      <div
-        className="hidden md:block absolute top-16 left-6 lg:left-12 pointer-events-none select-none z-0 opacity-[0.05]"
-        aria-hidden="true"
-      >
-        <svg
-          width="130"
-          height="160"
-          viewBox="0 0 130 160"
-          fill="none"
-          stroke="#10251D"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M 10,10 Q 50,70 120,150" />
-          <path d="M 35,45 C 20,35 15,15 35,25 C 50,32 40,45 35,45 Z" fill="#10251D" fillOpacity="0.3" />
-          <path d="M 60,80 C 80,70 85,50 65,60 C 50,68 60,80 60,80 Z" fill="#10251D" fillOpacity="0.3" />
-          <path d="M 85,115 C 70,105 65,85 85,95 C 100,102 90,115 85,115 Z" fill="#10251D" fillOpacity="0.3" />
-        </svg>
-      </div>
 
-      {/* Lower-left faint botanical silhouette */}
-      <div
-        className="hidden lg:block absolute bottom-20 left-8 pointer-events-none select-none z-0 opacity-[0.045]"
-        aria-hidden="true"
-      >
-        <svg
-          width="110"
-          height="140"
-          viewBox="0 0 110 140"
-          fill="none"
-          stroke="#10251D"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M 15,130 Q 45,70 95,20" />
-          <path d="M 35,95 C 20,85 18,65 35,75 C 50,82 40,95 35,95 Z" fill="#10251D" fillOpacity="0.3" />
-          <path d="M 60,60 C 80,50 82,30 65,40 C 50,48 60,60 60,60 Z" fill="#10251D" fillOpacity="0.3" />
-        </svg>
-      </div>
 
       {/* ========================================================
           MAIN CONTENT CONTAINER (z-10, clean & centered)

@@ -12,21 +12,6 @@ export default function SpeakersSection() {
       aria-label="Our Speakers — Voices of Change"
       className="relative w-full bg-[#F4F0E6] text-[#10251D] py-20 sm:py-28 lg:py-36 overflow-hidden select-none"
     >
-      {/* ========================================================
-          BACKGROUND DECORATIVE FLOURISHES & BOTANICALS
-          ======================================================== */}
-      {/* 1. Top-Left Botanical Leaves */}
-      <div
-        className="absolute -top-6 -left-6 w-48 sm:w-64 lg:w-80 h-48 sm:h-64 lg:h-80 pointer-events-none select-none z-10 opacity-70"
-        aria-hidden="true"
-      >
-        <Image
-          src="/images/botanical-leaves.jpg"
-          alt=""
-          fill
-          className="object-contain object-top-left mix-blend-multiply"
-        />
-      </div>
 
       {/* 2. Right-side Ambient Curved Overlay Waves */}
       <div
@@ -78,7 +63,7 @@ export default function SpeakersSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-4 flex flex-col justify-center"
+            className="lg:col-span-8 flex flex-col justify-center"
           >
             {/* Eyebrow: ────── VOICES OF CHANGE ────── */}
             <div className="flex items-center gap-3 mb-3.5">
@@ -195,31 +180,6 @@ export default function SpeakersSection() {
               <span>VIEW SPEAKERS</span>
               <ArrowRight className="w-4 h-4 text-[#C9A15B] transition-transform duration-300 group-hover:translate-x-1.5" />
             </Link>
-          </motion.div>
-
-          {/* ========================================================
-              RIGHT COLUMN: EDITORIAL KEYNOTE SPEAKER AT PODIUM PHOTOGRAPH
-              ======================================================== */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.85, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-4 relative flex justify-end"
-          >
-            <div className="relative w-full max-w-[430px] h-[340px] sm:h-[400px] lg:h-[440px] rounded-[24px] overflow-hidden border border-[#C9A15B]/30 shadow-[0_24px_50px_rgba(16,37,29,0.2)] group">
-              <Image
-                src="/images/speaker-podium.jpg"
-                alt="Keynote Speaker at Conclave Podium"
-                fill
-                sizes="(max-width: 1024px) 100vw, 430px"
-                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-              {/* Warm Soft Amber Gradient Veil */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#10251D]/60 via-transparent to-transparent pointer-events-none" />
-              {/* Subtle Golden Hairline Accent Border */}
-              <div className="absolute inset-0 rounded-[24px] border border-white/20 pointer-events-none" />
-            </div>
           </motion.div>
 
         </div>

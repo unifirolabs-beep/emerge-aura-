@@ -12,41 +12,6 @@ export default function FeaturedSessions() {
       aria-label="Featured sessions — Explore Insights"
       className="relative w-full bg-[#032D1D] text-[#F4EFE6] py-20 sm:py-28 lg:py-36 overflow-hidden select-none border-t border-[#09422C]"
     >
-      {/* ========================================================
-          BACKGROUND BOTANICALS & GEOMETRY
-          ======================================================== */}
-      {/* 1. Top-Left & Bottom-Right Botanical Accents */}
-      <div
-        className="absolute -top-10 -left-10 w-48 sm:w-64 lg:w-80 h-48 sm:h-64 lg:h-80 pointer-events-none select-none z-10 opacity-30 mix-blend-screen overflow-hidden"
-        style={{
-          maskImage: "radial-gradient(circle at top left, black 35%, transparent 75%)",
-          WebkitMaskImage: "radial-gradient(circle at top left, black 35%, transparent 75%)",
-        }}
-        aria-hidden="true"
-      >
-        <Image
-          src="/images/botanical-leaves.jpg"
-          alt=""
-          fill
-          className="object-contain object-top-left"
-        />
-      </div>
-
-      <div
-        className="absolute -bottom-10 -right-10 w-48 sm:w-64 lg:w-80 h-48 sm:h-64 lg:h-80 pointer-events-none select-none z-10 opacity-30 mix-blend-screen overflow-hidden"
-        style={{
-          maskImage: "radial-gradient(circle at bottom right, black 35%, transparent 75%)",
-          WebkitMaskImage: "radial-gradient(circle at bottom right, black 35%, transparent 75%)",
-        }}
-        aria-hidden="true"
-      >
-        <Image
-          src="/images/botanical-leaves.jpg"
-          alt=""
-          fill
-          className="object-contain object-bottom-right"
-        />
-      </div>
 
       {/* 2. Top-Right Faint Gold Sacred Geometry Orbit */}
       <div

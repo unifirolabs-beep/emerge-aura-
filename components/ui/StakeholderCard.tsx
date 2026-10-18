@@ -100,24 +100,6 @@ export default function StakeholderCard({ stakeholder, index }: StakeholderCardP
           />
         </svg>
 
-        {/* Delicate decorative botanical leaf accent at lower curve */}
-        <div
-          className="absolute bottom-1.5 left-2 sm:left-3 w-5 h-5 sm:w-6 sm:h-6 pointer-events-none opacity-85 select-none transition-transform duration-500 group-hover:scale-110"
-          aria-hidden="true"
-        >
-          <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-            <path
-              d="M12 21C12 21 13 16 18 14C23 12 21 4 21 4C21 4 13 4 11 9C9.5 12.5 11 16.5 12 21Z"
-              fill="#527853"
-              fillOpacity="0.75"
-            />
-            <path
-              d="M12 21C12 17 8 15 4 16C1 17 2 10 2 10C2 10 8 9 11 13C12.5 15.5 12 18.5 12 21Z"
-              fill="#739072"
-              fillOpacity="0.65"
-            />
-          </svg>
-        </div>
       </div>
 
       {/* Subtle Bottom Gold Highlight Bar on Hover */}

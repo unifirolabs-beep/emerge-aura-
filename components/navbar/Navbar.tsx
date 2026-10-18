@@ -44,17 +44,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
-          isLightPage
-            ? isScrolled
-              ? "py-3 bg-[#F7F2E8]/95 backdrop-blur-[12px] border-b border-[#C89B3C]/20 shadow-[0_4px_24px_rgba(7,59,42,0.06)]"
-              : "py-4 sm:py-5 bg-[#F7F2E8]/80 backdrop-blur-[8px] border-b border-[#C89B3C]/15"
-            : isScrolled
-            ? "py-3 bg-black/40 backdrop-blur-[12px] border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.3)]"
-            : "py-4 sm:py-5 bg-black/10 backdrop-blur-[8px] border-b border-white/5"
-        }`}
-      >
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out py-4 sm:py-5 bg-[#F5F1E8]`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
           {/* Logo */}
           <Link
@@ -77,31 +67,11 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => {
-              const isActive =
-                item.href === pathname ||
-                (item.href === "/sponsors" && pathname.startsWith("/sponsors"));
-
-              if (isActive && isLightPage) {
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="text-[12px] xl:text-[13px] font-semibold tracking-[0.14em] uppercase text-white bg-[#C89B3C] px-4 py-1.5 rounded-full shadow-xs transition-all duration-200 font-sans"
-                  >
-                    {item.label}
-                  </Link>
-                );
-              }
-
               return (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`text-[12px] xl:text-[13px] font-medium tracking-[0.14em] uppercase transition-colors duration-200 py-1 font-sans ${
-                    isLightPage
-                      ? "text-[#17352B] hover:text-[#C89B3C]"
-                      : "text-[#F7F3E8] hover:text-[#D8B56A]"
-                  }`}
+                  className={`text-[12px] xl:text-[13px] font-medium tracking-[0.14em] uppercase transition-colors duration-200 py-1 font-sans text-[#073B2A] hover:text-[#C89B3C]`}
                 >
                   {item.label}
                 </Link>
@@ -111,17 +81,6 @@ export default function Navbar() {
 
           {/* CTA & Mobile Menu Toggle */}
           <div className="flex items-center gap-3 sm:gap-4">
-            {/* Sign In Button */}
-            <button
-              onClick={() => setIsSignInModalOpen(true)}
-              className={`hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-full text-[12px] sm:text-[13px] font-semibold tracking-[0.12em] uppercase transition-all duration-300 border hover:scale-[1.03] active:scale-[0.98] ${
-                isLightPage
-                  ? "text-[#17352B] border-[#17352B]/20 hover:border-[#C89B3C] hover:text-[#C89B3C] hover:bg-[#C89B3C]/5"
-                  : "text-[#F7F3E8] border-white/20 hover:border-[#D8B56A] hover:text-[#D8B56A] hover:bg-[#D8B56A]/5"
-              }`}
-            >
-              SIGN IN
-            </button>
             
             {/* Primary CTA: REGISTER NOW → */}
             <a
@@ -168,19 +127,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className={`fixed inset-0 z-40 lg:hidden backdrop-blur-xl pt-24 pb-10 px-6 flex flex-col justify-between ${
-              isLightPage ? "bg-[#F7F2E8]/98" : "bg-black/95"
-            }`}
+            className={`fixed inset-0 z-40 lg:hidden backdrop-blur-xl pt-24 pb-10 px-6 flex flex-col justify-between bg-[#F7F2E8]`}
           >
             <div className="flex flex-col gap-5 mt-2">
-              <div className="relative w-[150px] h-[55px] mb-4">
-                <Image
-                  src="/logo.webp"
-                  alt="EMERGE AURO"
-                  fill
-                  className="object-contain object-left"
-                />
-              </div>
 
               {navItems.map((item, index) => {
                 const isActive =
@@ -198,13 +147,7 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`text-lg font-medium tracking-[0.14em] uppercase transition-colors block py-1 font-sans ${
-                        isActive
-                          ? "text-[#C89B3C] font-bold"
-                          : isLightPage
-                          ? "text-[#17352B] hover:text-[#C89B3C]"
-                          : "text-[#F7F3E8] hover:text-[#D8B56A]"
-                      }`}
+                      className={`text-lg font-medium tracking-[0.14em] uppercase transition-colors block py-1 font-sans text-[#073B2A] hover:text-[#101410]`}
                     >
                       {item.label}
                     </Link>
@@ -218,29 +161,12 @@ export default function Navbar() {
                 isLightPage ? "border-[#073B2A]/10" : "border-white/10"
               }`}
             >
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setIsSignInModalOpen(true);
-                }}
-                className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-xs font-semibold tracking-[0.16em] uppercase transition-all border ${
-                  isLightPage
-                    ? "text-[#17352B] border-[#17352B]/20 hover:border-[#C89B3C] hover:text-[#C89B3C] hover:bg-[#C89B3C]/5"
-                    : "text-[#F7F3E8] border-white/20 hover:border-[#D8B56A] hover:text-[#D8B56A] hover:bg-[#D8B56A]/5"
-                }`}
-              >
-                <span>SIGN IN</span>
-              </button>
               <a
                 href="https://forms.zohopublic.in/infosectio1/form/ClientDetails/formperma/Ou2moWIn4JWNQPOqsPB0tHxOEBFwqaz3oXxgB1h3Sms"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-xs font-semibold tracking-[0.16em] uppercase shadow-md transition-all ${
-                  isLightPage
-                    ? "text-white bg-[#C89B3C] hover:bg-[#B3872E]"
-                    : "text-[#101410] bg-[#D8B56A] hover:bg-[#faebc7]"
-                }`}
+                className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-xs font-semibold tracking-[0.16em] uppercase shadow-md transition-all`}
               >
                 <span>REGISTER NOW</span>
                 <ArrowUpRight className="w-4 h-4" />

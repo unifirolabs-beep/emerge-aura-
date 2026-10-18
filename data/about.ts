@@ -29,16 +29,6 @@ export interface AboutContentData {
     };
     purpose: string;
   };
-  images: {
-    primary: {
-      src: string;
-      alt: string;
-    };
-    secondary: {
-      src: string;
-      alt: string;
-    };
-  };
 }
 
 export const aboutData: AboutContentData = {
@@ -90,15 +80,5 @@ export const aboutData: AboutContentData = {
     },
     purpose:
       "Three days bringing founders, investors, institutions and student innovators together to turn conscious capital into commitments.",
-  },
-  images: {
-    primary: {
-      src: "/images/about/auroville-matrimandir.jpg",
-      alt: "Golden Matrimandir sphere of Auroville representing conscious capital and human unity",
-    },
-    secondary: {
-      src: "/images/about/auroville-amphitheater.jpg",
-      alt: "Auroville outdoor amphitheater for conscious commerce dialogue and commitments",
-    },
   },
 };

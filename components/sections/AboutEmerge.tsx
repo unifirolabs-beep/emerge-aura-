@@ -11,7 +11,7 @@ export default function AboutEmerge() {
     <section
       id="about"
       aria-label="About Emerge Auro — India's First Conscious Capital Conclave"
-      className="relative w-full min-h-screen lg:h-screen lg:min-h-[760px] lg:max-h-[1080px] bg-[#F4F0E6] text-[#10251D] overflow-hidden flex items-center justify-center select-none py-16 lg:py-0 border-t border-[#E8E2D4]"
+      className="relative w-full bg-[#F4F0E6] text-[#10251D] overflow-hidden flex items-center justify-center select-none py-16 lg:py-6 border-t border-[#E8E2D4]"
     >
       {/* ========================================================
           1. TOP-RIGHT SIGNATURE GOLD CIRCLE & ORBITAL RINGS
@@ -64,25 +64,6 @@ export default function AboutEmerge() {
         </svg>
       </div>
 
-      {/* ========================================================
-          2. BOTTOM-RIGHT AUROVILLE AMPHITHEATER (Feather-Faded)
-          ======================================================== */}
-      <div
-        className="absolute -bottom-6 -right-6 w-[380px] h-[260px] sm:w-[520px] sm:h-[350px] lg:w-[680px] lg:h-[440px] xl:w-[780px] xl:h-[500px] pointer-events-none select-none z-0 overflow-hidden"
-        style={{
-          maskImage: "radial-gradient(ellipse 90% 90% at 85% 85%, black 45%, rgba(0,0,0,0.5) 70%, transparent 88%)",
-          WebkitMaskImage: "radial-gradient(ellipse 90% 90% at 85% 85%, black 45%, rgba(0,0,0,0.5) 70%, transparent 88%)",
-        }}
-        aria-hidden="true"
-      >
-        <Image
-          src={aboutData.images.secondary.src}
-          alt=""
-          fill
-          className="object-cover object-bottom-right opacity-80"
-        />
-        <div className="absolute inset-0 bg-[#F4F0E6]/15 mix-blend-color" />
-      </div>
 
       {/* ========================================================
           3. MAIN EDITORIAL CONTENT CONTAINER

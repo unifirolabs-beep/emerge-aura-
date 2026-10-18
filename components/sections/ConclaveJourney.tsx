@@ -44,23 +44,6 @@ export default function ConclaveJourney() {
         </svg>
       </div>
 
-      {/* 2. Top-Left Lush Botanical Foliage */}
-      <div
-        className="absolute -top-12 -left-12 w-64 sm:w-80 lg:w-[420px] h-64 sm:h-80 lg:h-[420px] pointer-events-none select-none z-0 mix-blend-screen opacity-25 overflow-hidden"
-        style={{
-          maskImage: "radial-gradient(circle at top left, black 35%, transparent 75%)",
-          WebkitMaskImage: "radial-gradient(circle at top left, black 35%, transparent 75%)",
-        }}
-        aria-hidden="true"
-      >
-        <Image
-          src="/images/botanical-leaves.jpg"
-          alt=""
-          fill
-          className="object-contain object-top-left"
-        />
-      </div>
-
       {/* 3. Subtle Ambient Radial Light behind Heading */}
       <div
         className="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(201,161,91,0.08)_0%,transparent_70%)] pointer-events-none z-0"
@@ -161,27 +144,6 @@ export default function ConclaveJourney() {
         </div>
       </div>
 
-      {/* ========================================================
-          BOTTOM ATMOSPHERE: AUROVILLE LANDSCAPE
-          (Emerging softly from deep forest green)
-          ======================================================== */}
-      <div
-        className="absolute bottom-0 left-0 right-0 w-full h-[350px] sm:h-[450px] lg:h-[550px] pointer-events-none select-none z-0 overflow-hidden"
-        style={{
-          maskImage: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, transparent 95%)",
-          WebkitMaskImage: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, transparent 95%)",
-        }}
-        aria-hidden="true"
-      >
-        <Image
-          src="/images/agenda/auroville-landscape.jpg"
-          alt=""
-          fill
-          className="object-cover object-center opacity-65 mix-blend-luminosity brightness-90 contrast-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#032D1D]/90 via-[#032D1D]/40 to-[#032D1D] mix-blend-multiply" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(201,161,91,0.15)_0%,transparent_70%)] pointer-events-none" />
-      </div>
     </section>
   );
 }

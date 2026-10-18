@@ -5,39 +5,44 @@ import { motion } from "motion/react";
 
 const organizerLogos = [
   {
-    src: "/organizerslogos/Auroville Foundation.png",
-    alt: "Auroville Foundation",
-    name: "Auroville Foundation",
+    src: "/sponsers/ecosystempartner/beggers corporation.jpeg",
+    alt: "Beggers Corporation",
+    name: "Beggers Corporation",
   },
   {
-    src: "/organizerslogos/D Purpose.png",
-    alt: "D Purpose",
-    name: "D Purpose",
+    src: "/sponsers/ecosystempartner/Emblem_of_the_Government_of_Puducherry.png",
+    alt: "Government of Puducherry",
+    name: "Government of Puducherry",
   },
   {
-    src: "/organizerslogos/First World Community.png",
-    alt: "First World Community",
-    name: "First World Community",
+    src: "/sponsers/ecosystempartner/EsamudaayLogo.webp",
+    alt: "Esamudaay",
+    name: "Esamudaay",
   },
   {
-    src: "/organizerslogos/Pondicherry University.png",
-    alt: "Pondicherry University",
-    name: "Pondicherry University",
+    src: "/sponsers/ecosystempartner/Mathan.png",
+    alt: "Mathan",
+    name: "Mathan",
   },
   {
-    src: "/organizerslogos/Section Infin8 Foundation.png",
-    alt: "Section Infin8 Foundation",
-    name: "Section Infin8 Foundation",
+    src: "/sponsers/ecosystempartner/Naturals.png",
+    alt: "Naturals",
+    name: "Naturals",
   },
   {
-    src: "/organizerslogos/UTTHAN.png",
-    alt: "UTTHAN",
-    name: "UTTHAN",
+    src: "/sponsers/ecosystempartner/next-bharat.webp",
+    alt: "Next Bharat",
+    name: "Next Bharat",
   },
   {
-    src: "/organizerslogos/Village Technology School.png",
-    alt: "Village Technology School",
-    name: "Village Technology School",
+    src: "/sponsers/prizemoneysponser/iinvsys.jpeg",
+    alt: "Iinvsys",
+    name: "Iinvsys",
+  },
+  {
+    src: "/sponsers/rythemicenergysponser/pmctech.jpeg",
+    alt: "P M C Tech",
+    name: "P M C Tech",
   },
 ];
 

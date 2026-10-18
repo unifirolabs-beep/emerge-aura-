@@ -216,111 +216,149 @@ export default function OrganizersSection() {
           <div className="w-16 h-[1.5px] bg-[#C5A880]/50 mx-auto mt-6" />
         </motion.div>
 
-        {/* ORGANIZER CARDS STACK */}
-        <div className="space-y-8 sm:space-y-9">
-          {organizersData.map((item, index) => (
-            <motion.div
-              key={item.id}
-              variants={shouldReduceMotion ? undefined : cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              className="relative bg-[#FFFFFF] rounded-[22px] border border-[#E7DEC8] shadow-[0_4px_28px_rgba(15,45,37,0.025)] transition-all duration-300 hover:shadow-[0_16px_40px_rgba(15,45,37,0.07)] hover:border-[#C5A880] hover:-translate-y-1 group"
-            >
-              {/* Number Badge (Desktop: Overlapping left border; Mobile: In-card top) */}
-              <motion.div
-                variants={shouldReduceMotion ? undefined : numberVariants}
-                className="hidden sm:flex absolute -left-5 sm:-left-6 top-1/2 -translate-y-1/2 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-[#FAF7F0] border border-[#C5A880]/90 items-center justify-center z-20 shadow-[0_2px_8px_rgba(15,45,37,0.06)]"
-                aria-hidden="true"
-              >
-                <span className="font-sans text-[13px] lg:text-[14px] font-semibold text-[#0F2D25] tracking-wider">
-                  {item.number}
-                </span>
-              </motion.div>
+        {/* ORGANIZER CARDS: FEATURED LEAD + 2-COLUMN GRID */}
+        {(() => {
+          const leadOrganizer = organizersData[0];
+          const gridOrganizers = organizersData.slice(1);
 
-              <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] lg:flex lg:flex-row items-stretch lg:items-center">
-                {/* Mobile Number Indicator */}
-                <div className="sm:hidden flex items-center gap-2.5 pt-5 px-6 pb-1">
-                  <span className="w-8 h-8 rounded-full bg-[#FAF7F0] border border-[#C5A880]/90 flex items-center justify-center text-[12px] font-semibold text-[#0F2D25] shadow-2xs">
-                    {item.number}
-                  </span>
-                  <span className="text-[11px] uppercase tracking-[0.14em] text-[#8C733E] font-semibold font-sans">
-                    Organizer {item.number}
-                  </span>
-                </div>
-
-                {/* Left: Dedicated Logo Area (Main visual element with elevated logo container) */}
+          return (
+            <div className="space-y-8 sm:space-y-10">
+              {/* 1. FEATURED LEAD ORGANIZER CARD (Section Infin8 Foundation) */}
+              {leadOrganizer && (
                 <motion.div
-                  variants={shouldReduceMotion ? undefined : logoVariants}
-                  className="w-full md:col-start-1 md:row-start-1 md:row-span-2 lg:col-auto lg:row-auto lg:w-[270px] shrink-0 p-6 sm:p-7 md:p-6 lg:p-7 flex items-center justify-center"
+                  key={leadOrganizer.id}
+                  variants={shouldReduceMotion ? undefined : cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.15 }}
+                  className="relative bg-[#FFFFFF] rounded-[24px] border border-[#E7DEC8] shadow-[0_4px_28px_rgba(15,45,37,0.025)] transition-all duration-300 hover:shadow-[0_16px_40px_rgba(15,45,37,0.07)] hover:border-[#C5A880] hover:-translate-y-1 p-6 sm:p-8 lg:p-10 group"
                 >
-                  <div className="relative w-full h-[130px] sm:h-[140px] md:h-[150px] rounded-[16px] bg-[#FAF8F3] border border-[#EADBCA]/90 shadow-[0_2px_12px_rgba(0,0,0,0.025),inset_0_1px_2px_rgba(255,255,255,0.8)] flex items-center justify-center p-4 sm:p-5 transition-all duration-300 group-hover:border-[#C5A880] group-hover:shadow-[0_4px_16px_rgba(197,168,128,0.12)] group-hover:-translate-y-0.5">
-                    {/* Subtle inner highlight */}
-                    <div className="absolute inset-0 rounded-[16px] pointer-events-none bg-gradient-to-b from-white/40 via-transparent to-black/[0.015]" />
+                  {/* Top Header Bar */}
+                  <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-7 border-b border-[#EBE4D3]">
+                    <div className="flex items-center gap-3">
+                      <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FAF7F0] border border-[#C5A880]/90 flex items-center justify-center text-[13px] font-semibold text-[#0F2D25] shadow-2xs">
+                        {leadOrganizer.number}
+                      </span>
+                      <span className="text-[11px] sm:text-[12px] font-sans font-semibold uppercase tracking-[0.2em] text-[#8C733E]">
+                        LEAD ARCHITECT & EXECUTION
+                      </span>
+                    </div>
 
-                    <div className="relative w-full h-full flex items-center justify-center">
-                      <Image
-                        src={item.logo}
-                        alt={item.logoAlt}
-                        fill
-                        sizes="(max-width: 768px) 240px, 260px"
-                        className="object-contain p-2.5 sm:p-3 transition-transform duration-400 ease-out group-hover:scale-[1.03]"
-                        priority={index < 2}
-                      />
+                    {leadOrganizer.url && (
+                      <a
+                        href={leadOrganizer.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full border border-[#C5A880]/90 text-[#0F2D25] bg-[#FAF7F0]/50 hover:bg-[#C5A880] hover:text-[#FFFFFF] transition-all duration-300 text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.08em] uppercase shadow-2xs group/btn active:scale-95 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880]"
+                      >
+                        <span>{leadOrganizer.buttonText || "VISIT WEBSITE"}</span>
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1 text-current" />
+                      </a>
+                    )}
+                  </div>
+
+                  {/* Split Body: Logo on left, narrative on right */}
+                  <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] xl:grid-cols-[340px_1fr] gap-8 lg:gap-10 items-start">
+                    {/* Left: Elevated Logo Container */}
+                    <div className="relative w-full h-[180px] sm:h-[210px] rounded-[18px] bg-[#FAF8F3] border border-[#EADBCA]/90 shadow-[0_2px_12px_rgba(0,0,0,0.025),inset_0_1px_2px_rgba(255,255,255,0.8)] flex items-center justify-center p-6 transition-all duration-300 group-hover:border-[#C5A880] group-hover:shadow-[0_4px_16px_rgba(197,168,128,0.12)] group-hover:-translate-y-0.5">
+                      <div className="absolute inset-0 rounded-[18px] pointer-events-none bg-gradient-to-b from-white/40 via-transparent to-black/[0.015]" />
+                      <div className="relative w-full h-full flex items-center justify-center">
+                        <Image
+                          src={leadOrganizer.logo}
+                          alt={leadOrganizer.logoAlt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 340px"
+                          className="object-contain p-3 transition-transform duration-400 ease-out group-hover:scale-[1.03]"
+                          priority
+                        />
+                      </div>
+                    </div>
+
+                    {/* Right: Narrative Content */}
+                    <div className="flex flex-col">
+                      <h3 className="font-editorial text-[26px] sm:text-[32px] font-bold text-[#0F2D25] leading-snug tracking-tight mb-4">
+                        {leadOrganizer.name}
+                      </h3>
+                      <div className="space-y-3.5 font-sans text-[15px] sm:text-[15.5px] leading-[1.75] text-[#243E33]/90 font-normal">
+                        {leadOrganizer.paragraphs.map((paragraph, pIdx) => (
+                          <p key={pIdx}>{paragraph}</p>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
+              )}
 
-                {/* Vertical Divider (Desktop) */}
-                <div
-                  className="hidden lg:block w-[1px] bg-[#EBE4D3] self-stretch my-6 lg:my-8"
-                  aria-hidden="true"
-                />
-
-                {/* Horizontal Divider (Mobile) */}
-                <div
-                  className="md:hidden mx-6 h-[1px] bg-[#EBE4D3]"
-                  aria-hidden="true"
-                />
-
-                {/* Center: Organizer Content (~55% width) */}
-                <motion.div
-                  variants={shouldReduceMotion ? undefined : contentVariants}
-                  className={`flex-1 md:col-start-2 md:row-start-1 lg:col-auto lg:row-auto p-6 lg:py-7 lg:px-8 ${
-                    item.url ? "md:pt-8 md:pb-2 md:px-8" : "md:py-8 md:px-8"
-                  }`}
-                >
-                  <h3 className="font-editorial text-[24px] sm:text-[27px] font-bold text-[#0F2D25] leading-snug tracking-tight mb-3">
-                    {item.name}
-                  </h3>
-                  <div className="space-y-3 font-sans text-[14.5px] sm:text-[15.5px] leading-[1.72] text-[#243E33]/90 font-normal">
-                    {item.paragraphs.map((paragraph, pIdx) => (
-                      <p key={pIdx}>{paragraph}</p>
-                    ))}
-                  </div>
-                </motion.div>
-
-                {/* Right: Action Button (~20% width on desktop) */}
-                {item.url && (
+              {/* 2. BALANCED 2-COLUMN GRID (Remaining 6 Organizers) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-8">
+                {gridOrganizers.map((item, index) => (
                   <motion.div
-                    variants={shouldReduceMotion ? undefined : buttonVariants}
-                    className="shrink-0 md:col-start-2 md:row-start-2 lg:col-auto lg:row-auto p-6 md:pt-2 md:pb-8 md:px-8 lg:p-6 lg:pr-10 lg:pl-2 flex items-center justify-start md:justify-start lg:justify-end self-stretch md:self-auto"
+                    key={item.id}
+                    variants={shouldReduceMotion ? undefined : cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.15 }}
+                    className="relative bg-[#FFFFFF] rounded-[22px] border border-[#E7DEC8] shadow-[0_4px_28px_rgba(15,45,37,0.025)] transition-all duration-300 hover:shadow-[0_16px_40px_rgba(15,45,37,0.07)] hover:border-[#C5A880] hover:-translate-y-1 p-6 sm:p-7 flex flex-col group"
                   >
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 rounded-full border border-[#C5A880]/90 text-[#0F2D25] bg-[#FAF7F0]/40 hover:bg-[#C5A880] hover:text-[#FFFFFF] transition-all duration-300 text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.08em] uppercase shadow-2xs group/btn active:scale-95 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880]"
-                    >
-                      <span>{item.buttonText || "VISIT WEBSITE"}</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1 text-current" />
-                    </a>
+                    {/* Card Header: Number Badge & Category */}
+                    <div className="flex items-center justify-between pb-4 mb-5 border-b border-[#EBE4D3]/80">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-8 h-8 rounded-full bg-[#FAF7F0] border border-[#C5A880]/90 flex items-center justify-center text-[12px] font-semibold text-[#0F2D25] shadow-2xs">
+                          {item.number}
+                        </span>
+                        <span className="text-[11px] uppercase tracking-[0.18em] text-[#8C733E] font-semibold font-sans">
+                          ORGANIZER {item.number}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Logo Display Frame */}
+                    <div className="relative w-full h-[130px] sm:h-[140px] rounded-[16px] bg-[#FAF8F3] border border-[#EADBCA]/90 shadow-[0_2px_12px_rgba(0,0,0,0.025),inset_0_1px_2px_rgba(255,255,255,0.8)] flex items-center justify-center p-5 mb-5 transition-all duration-300 group-hover:border-[#C5A880] group-hover:shadow-[0_4px_16px_rgba(197,168,128,0.12)] group-hover:-translate-y-0.5">
+                      <div className="absolute inset-0 rounded-[16px] pointer-events-none bg-gradient-to-b from-white/40 via-transparent to-black/[0.015]" />
+                      <div className="relative w-full h-full flex items-center justify-center">
+                        <Image
+                          src={item.logo}
+                          alt={item.logoAlt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
+                          className="object-contain p-2.5 transition-transform duration-400 ease-out group-hover:scale-[1.03]"
+                          priority={index < 2}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Organizer Name */}
+                    <h3 className="font-editorial text-[22px] sm:text-[25px] font-bold text-[#0F2D25] leading-snug tracking-tight mb-3">
+                      {item.name}
+                    </h3>
+
+                    {/* Description Paragraphs */}
+                    <div className="space-y-3 font-sans text-[14px] sm:text-[14.5px] leading-[1.72] text-[#243E33]/90 font-normal flex-1 mb-6">
+                      {item.paragraphs.map((paragraph, pIdx) => (
+                        <p key={pIdx}>{paragraph}</p>
+                      ))}
+                    </div>
+
+                    {/* Card Footer: Action Button */}
+                    {item.url && (
+                      <div className="pt-4 border-t border-[#EBE4D3]/70 flex items-center justify-end mt-auto">
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#C5A880]/90 text-[#0F2D25] bg-[#FAF7F0]/40 hover:bg-[#C5A880] hover:text-[#FFFFFF] transition-all duration-300 text-[11.5px] sm:text-[12px] font-sans font-medium tracking-[0.08em] uppercase shadow-2xs group/btn active:scale-95 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880]"
+                        >
+                          <span>{item.buttonText || "VISIT WEBSITE"}</span>
+                          <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1 text-current" />
+                        </a>
+                      </div>
+                    )}
                   </motion.div>
-                )}
+                ))}
               </div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+          );
+        })()}
       </div>
     </section>
   );
