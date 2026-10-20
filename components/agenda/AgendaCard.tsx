@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "motion/react";
 import {
   MapPin,
   Calendar,
+  ChevronDown,
   Landmark,
   Lightbulb,
   GraduationCap,
@@ -147,17 +150,18 @@ const dayThemes: Record<string, {
 
 interface AgendaCardProps {
   day: DayAgenda;
-  index: number;
+  index?: number;
 }
 
-export default function AgendaCard({ day, index }: AgendaCardProps) {
+export default function AgendaCard({ day }: AgendaCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
   const theme = dayThemes[day.dayNumber] || dayThemes["2"];
 
   return (
     <article
       tabIndex={0}
       aria-label={`${day.dayLabel} — ${day.title} at ${day.location}`}
-      className={`group relative flex flex-col w-full h-auto min-h-[620px] lg:h-[670px] xl:h-[700px] rounded-[22px] bg-[#FAF8F2] border ${theme.cardBorder} shadow-[0_20px_50px_rgba(0,0,0,0.35)] ${theme.cardHoverShadow} transition-all duration-500 ease-out hover:-translate-y-2 overflow-hidden select-none`}
+      className={`group relative flex flex-col w-full h-auto min-h-[580px] lg:min-h-[600px] rounded-[22px] bg-[#FAF8F2] border ${theme.cardBorder} shadow-[0_20px_50px_rgba(0,0,0,0.35)] ${theme.cardHoverShadow} transition-all duration-500 ease-out hover:-translate-y-2 overflow-hidden select-none`}
     >
       {/* ========================================================
           CARD TOP: IMAGE & DAY PILL
@@ -200,18 +204,12 @@ export default function AgendaCard({ day, index }: AgendaCardProps) {
       <div className="mx-6 h-[1px] bg-[#10251D]/12 shrink-0 mb-3" />
 
       {/* ========================================================
-          CARD BODY: AGENDA ITEMS LIST (Scrollable with fade indicator)
+          CARD BODY: AGENDA ITEMS LIST
           ======================================================== */}
-      <div className="relative flex-1 w-full overflow-hidden">
-        {/* The scrolling container itself */}
-        <div 
-          className="absolute inset-0 px-6 pb-12 overflow-y-auto space-y-2.5 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-          style={{
-            WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
-            maskImage: "linear-gradient(to bottom, black 85%, transparent 100%)"
-          }}
-        >
-          {day.items.map((item) => (
+      <div className="px-6 pb-6 flex-1 flex flex-col justify-between">
+        <div className="space-y-2.5">
+          {/* Always visible preview items (first 4 items) */}
+          {day.items.slice(0, 4).map((item) => (
             <div
               key={item.id}
               className="flex items-start gap-3 py-1.5 border-b border-[#10251D]/8 last:border-b-0 group/item"
@@ -228,16 +226,67 @@ export default function AgendaCard({ day, index }: AgendaCardProps) {
               </div>
             </div>
           ))}
+
+          {/* Expandable remaining items */}
+          <AnimatePresence initial={false}>
+            {isExpanded && (
+              <motion.div
+                key="expanded-sessions"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="overflow-hidden space-y-2.5"
+              >
+                {day.items.slice(4).map((item) => (
+                  <div
+                    key={item.id}
+                    className="flex items-start gap-3 py-1.5 border-b border-[#10251D]/8 last:border-b-0 group/item"
+                  >
+                    <div className={`w-6 h-6 rounded-full ${theme.iconBg} flex items-center justify-center shrink-0 mt-0.5 ${theme.iconHoverBg} transition-colors`}>
+                      <div className={theme.iconColor}>
+                        {renderAgendaIcon(item.iconName)}
+                      </div>
+                    </div>
+                    <div className="text-[12px] sm:text-[12.5px] leading-snug font-sans text-[#26352D]">
+                      <span className={`font-semibold ${theme.titleColor}`}>{item.tag}</span>
+                      <span className="mx-1 text-[#10251D]/60">—</span>
+                      <span className="opacity-90">{item.description}</span>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-        
-        {/* Subtle bouncing arrow to indicate scrollable content */}
-        <div className="absolute bottom-3 left-0 right-0 flex justify-center pointer-events-none">
-          <div className="animate-bounce bg-[#FAF8F2]/80 backdrop-blur-sm rounded-full p-1.5 shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-black/5">
-            <svg className="w-3.5 h-3.5 text-[#10251D]/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-            </svg>
+
+        {/* Expand / Collapse Action Button with Down Arrow */}
+        {day.items.length > 4 && (
+          <div className="pt-4 mt-auto">
+            <button
+              type="button"
+              onClick={() => setIsExpanded((prev) => !prev)}
+              aria-expanded={isExpanded}
+              aria-label={isExpanded ? `Show less sessions for ${day.title}` : `View more sessions for ${day.title}`}
+              className="w-full group/btn flex items-center justify-center gap-2 py-2 px-3.5 rounded-full bg-white/80 hover:bg-white border border-[#10251D]/12 hover:border-[#10251D]/25 shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:shadow-md transition-all duration-300 cursor-pointer select-none"
+            >
+              <span className={`text-[11.5px] sm:text-xs font-sans font-medium tracking-wide ${theme.titleColor}`}>
+                {isExpanded ? "Show less" : `View more (${day.items.length - 4} more)`}
+              </span>
+              <div
+                className={`w-5 h-5 rounded-full ${theme.iconBg} flex items-center justify-center transition-all duration-300 ${
+                  !isExpanded ? "animate-bounce group-hover/btn:animate-none" : ""
+                }`}
+              >
+                <ChevronDown
+                  className={`w-3.5 h-3.5 ${theme.iconColor} transition-transform duration-300 ${
+                    isExpanded ? "rotate-180" : ""
+                  }`}
+                />
+              </div>
+            </button>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Subtle Bottom Accent Highlight Bar on Hover */}

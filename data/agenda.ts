@@ -54,7 +54,7 @@ export const conclaveJourneyData = {
           id: "d1-3",
           tag: "Young innovators",
           description:
-            "School science model expo (100+ models, 40+ schools, two judging rounds, public voting)",
+            "School Science Model Competition: student models from schools in and around Puducherry, judged at the desk",
           iconName: "GraduationCap",
         },
         {
@@ -66,7 +66,7 @@ export const conclaveJourneyData = {
         {
           id: "d1-5",
           tag: "Competition",
-          description: "Innovation Challenge finale (8-10 finalist pitches, jury)",
+          description: "EMERGE for Good Innovation Challenge. Single round of team pitches to jury panels. Top 3 teams present at the Conclave on 5–6 Dec",
           iconName: "Trophy",
         },
         {
@@ -87,7 +87,7 @@ export const conclaveJourneyData = {
     {
       dayNumber: "2",
       dayLabel: "Day 2",
-      date: "Tue 1 Dec",
+      date: "Sat 5 Dec",
       title: "MERGE",
       location: "Bharat Nivas, Auroville",
       theme: "co-creation and deal flow.",
@@ -150,7 +150,7 @@ export const conclaveJourneyData = {
     {
       dayNumber: "3",
       dayLabel: "Day 3",
-      date: "Wed 2 Dec",
+      date: "Sun 6 Dec",
       title: "EMERGE",
       location: "Bharat Nivas, Auroville",
       theme: "commitments and close.",

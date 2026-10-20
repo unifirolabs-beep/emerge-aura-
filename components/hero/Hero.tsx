@@ -166,7 +166,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-white/80 border border-[#EADBCA] shadow-[0_2px_10px_rgba(0,0,0,0.025)] text-xs sm:text-[13px] font-sans text-[#073B2A]">
             <Calendar className="w-3.5 h-3.5 text-[#C59A45]" />
-            <span className="font-semibold">28 October 2026 & 1–2 December 2026</span>
+            <span className="font-semibold">28 October 2026 & 5–6 December 2026</span>
           </div>
 
           <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-white/80 border border-[#EADBCA] shadow-[0_2px_10px_rgba(0,0,0,0.025)] text-xs sm:text-[13px] font-sans text-[#073B2A]">

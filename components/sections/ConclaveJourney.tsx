@@ -97,7 +97,7 @@ export default function ConclaveJourney() {
         {/* ========================================================
             THREE CARDS IN HORIZONTAL ROW (Desktop 3 Cols, Mobile Stack)
             ======================================================== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
           {days.map((day, idx) => (
             <motion.div
               key={day.dayNumber}
@@ -109,7 +109,7 @@ export default function ConclaveJourney() {
                 delay: idx * 0.15,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="flex"
+              className="flex flex-col w-full"
             >
               <AgendaCard day={day} index={idx} />
             </motion.div>

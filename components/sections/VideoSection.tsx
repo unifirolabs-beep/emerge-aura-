@@ -31,7 +31,7 @@ export default function VideoSection() {
           className="text-center mb-10 sm:mb-16 w-full"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#f4efe6] mb-4">
-            Experience the <span className="italic text-[#e3b873]">Aura</span>
+            Experience <span className="italic text-[#e3b873]">EMERGE AURO</span>
           </h2>
           <p className="text-[#a8a192] font-sans text-sm sm:text-base max-w-2xl mx-auto uppercase tracking-[0.15em]">
             A glimpse into the journey of innovation and impact

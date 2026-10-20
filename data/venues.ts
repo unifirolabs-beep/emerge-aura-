@@ -23,7 +23,7 @@ export const venuesData: VenueItem[] = [
     name: "Bharat Nivas",
     badge: "MAIN CONCLAVE VENUE",
     days: "Days 2 & 3",
-    dates: "1–2 December 2026",
+    dates: "5–6 December 2026",
     addressTitle: "Bharat Nivas, Auroville",
     addressLines: [
       "2R43+MZX, Auroville",

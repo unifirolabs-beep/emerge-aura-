@@ -10,7 +10,7 @@ const leaders = [
   {
     id: "ashok-kumar",
     name: "Dr CK Ashok Kumar",
-    role: "Founder & Chairman,\nFirst World Community",
+    role: "Chairperson, EMERGE AURO 2026 / Founder, First World Community",
     bio: "Dr. CK Ashok Kumar comes from one of Tamil Nadu's pioneering business families, whose work in making everyday products affordable to ordinary Indians is taught as a case study at Harvard and INSEAD. He spent two decades in spiritual practice at Tiruvannamalai...",
     image: "/leaders/ashok kumar.png",
     layout: "portrait-left",
@@ -26,8 +26,8 @@ const leaders = [
   {
     id: "shivakiran",
     name: "Dr Shivakiran Makam",
-    role: "Director,\nSection Infin8 Foundation",
-    bio: "Dr. (Inv.) Shivakiran Makam serves as Director for Strategy & Collaboration at Section Infin8 Foundation. He built and led AIC-SKU, an Atal Incubation Centre, as CEO for over three years, and co-chaired the Startup20 Alliance Group under India's G20 presidency...",
+    role: "Co-Convenor, EMERGE AURO 2026 / Director, Strategy & Collaboration, Section Infin-8 Foundation",
+    bio: "Dr Shivakiran Makam serves as Director for Strategy & Collaboration at Section Infin8 Foundation. He built and led AIC-SKU, an Atal Incubation Centre, as CEO for over three years, and co-chaired the Startup20 Alliance Group under India's G20 presidency...",
     image: "/leaders/shivakiran.png",
     layout: "portrait-left",
   },

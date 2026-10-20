@@ -23,12 +23,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://emergeauro.emergestartupfest.com"),
   title: "EMERGE AURO — India's First Conscious Capital Conclave",
   description:
-    "India's First Conscious Capital Conclave in Auroville and Pondicherry University. We bring together impact investing, conscious business, and startup ecosystems. Join us in Mangalore, Auroville, and beyond for sustainable value creation.",
+    "India's First Conscious Capital Conclave in Auroville and Pondicherry University. We bring together impact investing, conscious business, and startup ecosystems. Join us at Pondicherry University and Bharat Nivas, Auroville for sustainable value creation.",
   keywords: [
     "Emerge Auro",
     "Conscious Capital Conclave",
     "Auroville",
-    "Mangalore startups",
+    "Pondicherry Startups",
+    "Puducherry startups",
     "Pondicherry University",
     "Impact Investing",
     "Conscious Business",
@@ -37,9 +38,9 @@ export const metadata: Metadata = {
     "Founders",
     "India startups",
   ],
-  authors: [{ name: "Emerge Aura Team" }],
-  creator: "Emerge Aura",
-  publisher: "Emerge Aura",
+  authors: [{ name: "EMERGE AURO / Section Infin-8 Foundation" }],
+  creator: "EMERGE AURO / Section Infin-8 Foundation",
+  publisher: "EMERGE AURO / Section Infin-8 Foundation",
   formatDetection: {
     email: false,
     address: false,
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "EMERGE AURO — India's First Conscious Capital Conclave",
     description:
-      "Join India's First Conscious Capital Conclave. Businesses that create value for people, planet, and the future. From Emerge Mangalore to Auroville.",
+      "Join India's First Conscious Capital Conclave. Businesses that create value for people, planet, and the future.",
     images: [
       {
         url: "/images/hero/emerge-hero-01.webp",
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "EMERGE AURO — Conscious Capital Conclave",
     description:
-      "Join India's First Conscious Capital Conclave. Businesses that create value for people, planet, and the future. From Emerge Mangalore to Auroville.",
+      "Join India's First Conscious Capital Conclave. Businesses that create value for people, planet, and the future.",
     images: ["/images/hero/emerge-hero-01.webp"],
   },
   robots: {
