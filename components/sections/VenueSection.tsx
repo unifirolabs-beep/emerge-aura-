@@ -274,9 +274,6 @@ export default function VenueSection() {
                     {activeVenue.plusCode}
                   </span>
                 </div>
-                <div className="text-[11px] sm:text-xs text-[#8C733E] font-medium pointer-events-auto">
-                  Shuttle service available between Puducherry & Auroville
-                </div>
               </div>
             </div>
           </div>

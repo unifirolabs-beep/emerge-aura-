@@ -38,7 +38,6 @@ export const venuesData: VenueItem[] = [
     highlights: [
       "Pavilion of India, Auroville International Township",
       "Open-air amphitheatre & modern auditorium halls",
-      "Complimentary conclave shuttle & dedicated parking",
       "Eco-conscious campus powered by solar energy",
     ],
     mapEmbedUrl:

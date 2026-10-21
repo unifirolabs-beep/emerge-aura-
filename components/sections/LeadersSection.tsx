@@ -11,7 +11,7 @@ const leaders = [
     id: "ashok-kumar",
     name: "Dr CK Ashok Kumar",
     role: "Chairperson, EMERGE AURO 2026 / Founder, First World Community",
-    bio: "Dr. CK Ashok Kumar comes from one of Tamil Nadu's pioneering business families, whose work in making everyday products affordable to ordinary Indians is taught as a case study at Harvard and INSEAD. He spent two decades in spiritual practice at Tiruvannamalai...",
+    bio: "Dr. CK Ashok Kumar comes from one of Tamil Nadu's pioneering business families, known for making everyday products accessible and affordable to millions of Indians. He later spent two decades in spiritual practice at Tiruvannamalai.",
     image: "/leaders/ashok kumar.png",
     layout: "portrait-left",
   },

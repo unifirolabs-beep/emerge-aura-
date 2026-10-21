@@ -18,7 +18,7 @@ export const organizersData: OrganizerItem[] = [
     logoAlt: "Section Infin8 Foundation Logo",
     url: "https://www.sectioninfin8.org/",
     buttonText: "Visit Website",
-    paragraphs: "Section Infin-8 Foundation (SI-8) is a Section 8 non-profit based in Mangaluru that serves as the architect and execution lead for the EMERGE format. The foundation is dedicated to transforming Tier-2 and Tier-3 regions into innovation hubs through its People, Planet, Prosperity vision. Building on a proven track record, it organized India's first beachside startup festival in 2024 and expanded its 2026 edition under the guidance of the Office of the Principal Scientific Advisor to the Government of India. Beyond events, SI-8 drives institutional impact through initiatives like the Silicon Beach Shark Tank, which connected over 120 national applicant startups with top investors.",
+    paragraphs: "Section Infin-8 Foundation (SI-8) is a Section 8 non-profit based in Mangaluru that serves as the architect and execution lead for the EMERGE format. The foundation is dedicated to transforming Tier-2 and Tier-3 regions into innovation hubs through its People, Planet, Prosperity vision. Building on a proven track record, SI-8 successfully organized India's first beachside startup festival in 2024 and scaled the initiative into a larger platform for innovation, entrepreneurship, and ecosystem collaboration. Beyond events, SI-8 drives institutional impact through initiatives like the Silicon Beach Shark Tank, which connected over 120 startup applicants from across the country with leading investors.",
   },
   {
     id: "first-world-community",
@@ -28,7 +28,7 @@ export const organizersData: OrganizerItem[] = [
     logoAlt: "First World Community Logo",
     url: "https://www.firstworldcommunity.org/",
     buttonText: "Visit Website",
-    paragraphs: "First World Community (FWC) is a global business network operating active chapters across eight countries, including Singapore, South Africa, and the United States. Founded and chaired by Dr. CK Ashok Kumar, FWC connects entrepreneurs to essential capital, mentorship, and visibility. The network operates under the core conviction that purpose-aligned businesses achieve superior, far-reaching outcomes. For EMERGE AURO, FWC plays a central role as the on-ground execution lead and Puducherry implementation partner.",
+    paragraphs: "First World Community (FWC) is a global business network founded and chaired by Dr. CK Ashok Kumar. FWC connects entrepreneurs to essential capital, mentorship, and visibility while operating under the core conviction that purpose-aligned businesses achieve superior, far-reaching outcomes. For EMERGE AURO, FWC plays a central role as the on-ground execution lead and Puducherry implementation partner.",
   },
   {
     id: "pondicherry-university",
@@ -38,7 +38,7 @@ export const organizersData: OrganizerItem[] = [
     logoAlt: "Pondicherry University Logo",
     url: "https://www.pondiuni.edu.in/",
     buttonText: "Visit Website",
-    paragraphs: "Pondicherry University hosts Day 1 of EMERGE AURO. Established by an Act of Parliament in 1985 and funded through the Ministry of Education, it is a central university spanning a 1,000-acre campus at Kalapet with 14 schools and 52 departments across its Puducherry and Karaikal campuses. The university opens the conclave with the Innovation Challenge finale, the School Science Model Expo, and an academic IPR and research commercialisation showcase drawing in IIT Madras, NIT Puducherry and JIPMER.",
+    paragraphs: "Pondicherry University hosts Day 1 of EMERGE AURO. Established by an Act of Parliament in 1985 and funded through the Ministry of Education, it is a premier central university known for its contributions to higher education, research, and innovation. The university opens the conclave with the Innovation Challenge finale, the School Science Model Expo, and an academic showcase focused on intellectual property, research, and commercialisation.",
   },
   {
     id: "dpurpose-foundation",

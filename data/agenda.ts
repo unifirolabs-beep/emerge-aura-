@@ -60,7 +60,7 @@ export const conclaveJourneyData = {
         {
           id: "d1-4",
           tag: "Academia",
-          description: "IPR & research commercialisation showcase — PU, IITM, NIT, NITP, JIPMER",
+          description: "IPR & research commercialisation showcase",
           iconName: "Building2",
         },
         {
@@ -79,7 +79,7 @@ export const conclaveJourneyData = {
           id: "d1-7",
           tag: "Networking",
           description:
-            "Student-founder interactions; closed investor & partner dinner in Puducherry",
+            "Student-founder interactions",
           iconName: "Users",
         },
       ],
@@ -95,52 +95,52 @@ export const conclaveJourneyData = {
       alt: "Day 2 Merge — Matrimandir sphere of Auroville in lush tropical canopy",
       accentColor: "#4B6B4E",
       items: [
+        // {
+        //   id: "d2-1",
+        //   tag: "Ritual",
+        //   description: "Dawn walk",
+        //   iconName: "Sunrise",
+        // },
         {
           id: "d2-1",
-          tag: "Ritual",
-          description: "Dawn walk",
-          iconName: "Sunrise",
-        },
-        {
-          id: "d2-2",
           tag: "Showcase",
           description:
-            "Startup showcase opens — 40 startups, Auroville enterprise, sponsors, institutional partners",
+            "Startup showcase opens — Startups, Auroville enterprise, sponsors, institutional partners",
           iconName: "Presentation",
         },
         {
-          id: "d2-3",
+          id: "d2-2",
           tag: "Deal-flow",
           description: "Deal lounge + pre-scheduled investor 1:1s",
           iconName: "Handshake",
         },
         {
-          id: "d2-4",
+          id: "d2-3",
           tag: "Learning",
           description: "Founder masterclasses — fundraising, GTM, impact, ESG",
           iconName: "BookOpen",
         },
         {
-          id: "d2-5",
+          id: "d2-4",
           tag: "Stage",
           description: "Startup pitches batch 1 with live investor reactions",
           iconName: "Mic2",
         },
         {
-          id: "d2-6",
+          id: "d2-5",
           tag: "Immersion",
           description:
             "Auroville enterprise tours",
           iconName: "Compass",
         },
         {
-          id: "d2-7",
+          id: "d2-6",
           tag: "Dialogue",
           description: "Sector roundtables — climate, agri, health, conscious commerce",
           iconName: "MessageCircle",
         },
         {
-          id: "d2-8",
+          id: "d2-7",
           tag: "Culture",
           description: "Art, live sets, film, farmers' market and cultural evening",
           iconName: "Music",
@@ -164,48 +164,48 @@ export const conclaveJourneyData = {
           description: "Dawn practice / yoga",
           iconName: "Sun",
         },
-        {
-          id: "d3-2",
-          tag: "Capital access",
-          description: "RDI Fund orientations + TDB application clinic (ANRF / DST / TDB officials)",
-          iconName: "Coins",
-        },
+        // {
+        //   id: "d3-2",
+        //   tag: "Capital access",
+        //   description: "RDI Fund orientations + TDB application clinic (ANRF / DST / TDB officials)",
+        //   iconName: "Coins",
+        // },
         {
           id: "d3-3",
           tag: "Deal-flow",
           description: "Final showcase day, Deal Lounge, due-diligence clinics",
           iconName: "TrendingUp",
         },
-        {
-          id: "d3-4",
-          tag: "Policy",
-          description:
-            "Puducherry as a Conscious Innovation Zone — U.T. govt, IFU, DEFS, AVIF = position paper tabled",
-          iconName: "FileText",
-        },
-        {
-          id: "d3-5",
-          tag: "Wellbeing",
-          description: "Auroville builders in dialogue with founders under 35",
-          iconName: "HeartHandshake",
-        },
+        // {
+        //   id: "d3-4",
+        //   tag: "Policy",
+        //   description:
+        //     "Puducherry as a Conscious Innovation Zone — U.T. govt, IFU, DEFS, AVIF = position paper tabled",
+        //   iconName: "FileText",
+        // },
+        // {
+        //   id: "d3-5",
+        //   tag: "Wellbeing",
+        //   description: "Auroville builders in dialogue with founders under 35",
+        //   iconName: "HeartHandshake",
+        // },
         {
           id: "d3-6",
           tag: "Stage",
           description: "Startup pitches batch 2",
           iconName: "Mic2",
         },
-        {
-          id: "d3-7",
-          tag: "Commitments",
-          description: "LOI & MoU signing with government witness",
-          iconName: "Award",
-        },
+        // {
+        //   id: "d3-7",
+        //   tag: "Commitments",
+        //   description: "LOI & MoU signing with government witness",
+        //   iconName: "Award",
+        // },
         {
           id: "d3-8",
           tag: "Close",
           description:
-            "Closing keynote, documented totals, multicultural send-off, Year 2 intent",
+            "Closing keynote, multicultural send-off",
           iconName: "CheckCircle2",
         },
       ],
