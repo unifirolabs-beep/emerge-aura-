@@ -48,14 +48,9 @@ export default function SponsorsPageSection() {
           DECORATIVE BACKGROUND
           ======================================================== */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Thin gold concentric circles */}
         <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] rounded-full border-[0.5px] border-[#C89B3C]/20 opacity-50" />
         <div className="absolute top-[-20%] right-[-15%] w-[1000px] h-[1000px] sm:w-[1200px] sm:h-[1200px] rounded-full border-[0.5px] border-[#C89B3C]/15 opacity-40" />
-        
-        {/* Faint curved lines */}
         <div className="absolute bottom-[-10%] left-[-10%] w-[800px] h-[800px] rounded-full border-[0.5px] border-[#C89B3C]/15 opacity-40" />
-        
-        {/* Tiny gold dots */}
         <div className="absolute top-[20%] left-[10%] w-1.5 h-1.5 rounded-full bg-[#C89B3C] opacity-40" />
         <div className="absolute bottom-[30%] right-[15%] w-2 h-2 rounded-full bg-[#D4A94F] opacity-30" />
         <div className="absolute top-[60%] left-[5%] w-1 h-1 rounded-full bg-[#C89B3C] opacity-50" />
@@ -68,7 +63,6 @@ export default function SponsorsPageSection() {
         
         {/* Left: Text Content */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-1/2">
-          {/* Eyebrow */}
           <motion.div
             variants={fadeUpVariant(0.1)}
             initial="hidden"
@@ -83,7 +77,6 @@ export default function SponsorsPageSection() {
             <span className="hidden sm:block w-12 h-[1px] bg-[#C89B3C]" />
           </motion.div>
 
-          {/* Heading */}
           <motion.h1
             variants={fadeUpVariant(0.2)}
             initial="hidden"
@@ -94,7 +87,6 @@ export default function SponsorsPageSection() {
             OUR SPONSORS
           </motion.h1>
 
-          {/* Supporting Text */}
           <motion.p
             variants={fadeUpVariant(0.3)}
             initial="hidden"
@@ -105,7 +97,6 @@ export default function SponsorsPageSection() {
             A partnership opportunity for organizations shaping conscious capital, innovation and impact at EMERGE AURO.
           </motion.p>
 
-          {/* Button */}
           <motion.div
             variants={fadeUpVariant(0.4)}
             initial="hidden"
@@ -131,11 +122,9 @@ export default function SponsorsPageSection() {
           className="w-full lg:w-1/2 flex justify-center lg:justify-end"
         >
           <div className="relative w-[260px] h-[260px] sm:w-[400px] sm:h-[400px] flex items-center justify-center animate-[float_6s_ease-in-out_infinite]">
-            {/* Outline rings */}
             <div className="absolute inset-0 rounded-full border-[1.5px] border-[#C89B3C]/30" />
             <div className="absolute inset-4 rounded-full border-[1px] border-[#C89B3C]/10" />
             
-            {/* Inner background circle */}
             <div className="w-[150px] h-[150px] sm:w-[240px] sm:h-[240px] rounded-full bg-[#F5EEDC] shadow-[0_12px_40px_rgba(7,59,42,0.05)] flex items-center justify-center">
               <Handshake className="w-16 h-16 sm:w-28 sm:h-28 text-[#073B2A] stroke-[1]" />
             </div>
@@ -144,12 +133,11 @@ export default function SponsorsPageSection() {
       </div>
 
       {/* ========================================================
-          SPONSORSHIP INTRO & TABLE
+          SPONSORSHIP INTRO & RESPONSIVE TABLE
           ======================================================== */}
       <div className="relative z-10 w-full bg-white/40 pb-24 lg:pb-32">
         <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-28">
           
-          {/* Section Intro */}
           <div className="flex flex-col items-center text-center mb-16">
             <motion.div
               variants={fadeUpVariant(0.0)}
@@ -169,6 +157,11 @@ export default function SponsorsPageSection() {
             </motion.div>
           </div>
 
+          {/* Scroll instruction for mobile users */}
+          <div className="block lg:hidden text-center text-xs font-sans text-[#17352B]/60 mb-3 italic">
+            ← Scroll horizontally to view all sponsor tiers →
+          </div>
+
           {/* Table Container */}
           <motion.div
             variants={tableRevealVariant}
@@ -178,40 +171,39 @@ export default function SponsorsPageSection() {
             className="w-full bg-white/75 border border-[#B48C3C]/20 rounded-[18px] sm:rounded-[24px] shadow-[0_8px_32px_rgba(7,59,42,0.04)] overflow-hidden"
           >
             <div className="w-full overflow-x-auto custom-scrollbar">
-              <table className="w-full min-w-[1000px] border-collapse text-left text-sm font-sans">
+              <table className="w-full min-w-[750px] sm:min-w-[1000px] border-collapse text-left text-xs sm:text-sm font-sans">
                 <thead>
                   <tr>
-                    <th className="sticky left-0 top-0 z-20 w-[30%] bg-[#FBF9F4] p-4 sm:p-8 border-b border-[#B48C3C]/20 align-bottom shadow-[4px_0_16px_rgba(0,0,0,0.03)] sm:shadow-none">
-                      <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.1em] uppercase text-[#17352B]">
+                    {/* Compact column width on mobile so it doesn't take 90% */}
+                    <th className="sticky left-0 top-0 z-20 w-[35%] sm:w-[30%] bg-[#FBF9F4] p-3 sm:p-8 border-b border-[#B48C3C]/20 align-bottom shadow-[4px_0_16px_rgba(0,0,0,0.03)] sm:shadow-none">
+                      <span className="text-[10px] sm:text-[12px] font-bold tracking-[0.1em] uppercase text-[#17352B]">
                         SPONSOR CATEGORIES
                       </span>
                     </th>
                     {sponsorTiers.map((tier) => (
                       <th
                         key={tier.id}
-                        className={`w-[17.5%] p-6 text-center border-b border-[#B48C3C]/20 align-bottom relative ${
+                        className={`w-[16.25%] sm:w-[17.5%] p-3 sm:p-6 text-center border-b border-[#B48C3C]/20 align-bottom relative ${
                           tier.isFeatured
                             ? "bg-[#073B2A]"
                             : tier.headerBg
                         }`}
                       >
-                        {/* Optional outline for featured */}
                         {tier.isFeatured && (
                           <div className="absolute inset-0 border border-[#D4A94F] pointer-events-none" />
                         )}
-                        <div className="flex flex-col items-center gap-3">
-                          {/* We simulate icons since actual SVGs weren't specified, but using general ones */}
+                        <div className="flex flex-col items-center gap-2 sm:gap-3">
                           <div
-                            className={`w-10 h-10 rounded-full flex items-center justify-center border ${
+                            className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border ${
                               tier.isFeatured ? "border-[#D4A94F]/30 bg-white/5" : "border-black/10 bg-white/30"
                             }`}
                           >
                             <Handshake
-                              className={`w-5 h-5 ${tier.isFeatured ? "text-[#EADBCA]" : tier.headerText}`}
+                              className={`w-4 h-4 sm:w-5 sm:h-5 ${tier.isFeatured ? "text-[#EADBCA]" : tier.headerText}`}
                             />
                           </div>
                           <span
-                            className={`text-[13px] font-bold tracking-[0.1em] uppercase leading-tight ${
+                            className={`text-[11px] sm:text-[13px] font-bold tracking-[0.1em] uppercase leading-tight ${
                               tier.isFeatured ? "text-[#EADBCA]" : tier.headerText
                             }`}
                           >
@@ -223,12 +215,10 @@ export default function SponsorsPageSection() {
                   </tr>
                 </thead>
                 <tbody>
-
-                  {/* FEATURE ROWS */}
                   {sponsorFeatureRows.map((row) => (
                     <tr key={row.id} className="group transition-colors hover:bg-black/[0.02]">
-                      <td className="sticky left-0 z-10 bg-white/95 group-hover:bg-[#f9f8f5] p-4 sm:p-6 border-b border-[#B48C3C]/10 transition-colors shadow-[4px_0_16px_rgba(0,0,0,0.03)] sm:shadow-[2px_0_10px_rgba(0,0,0,0.02)]">
-                        <span className="text-[13px] sm:text-[14px] font-medium text-[#073B2A] leading-relaxed">
+                      <td className="sticky left-0 z-10 bg-white/95 group-hover:bg-[#f9f8f5] p-3 sm:p-6 border-b border-[#B48C3C]/10 transition-colors shadow-[4px_0_16px_rgba(0,0,0,0.03)] sm:shadow-[2px_0_10px_rgba(0,0,0,0.02)]">
+                        <span className="text-[12px] sm:text-[14px] font-medium text-[#073B2A] leading-snug sm:leading-relaxed block">
                           {row.feature}
                         </span>
                       </td>
@@ -238,18 +228,18 @@ export default function SponsorsPageSection() {
                         return (
                           <td
                             key={`${row.id}-col-${idx}`}
-                            className={`p-6 text-center border-b border-[#B48C3C]/10 ${
+                            className={`p-3 sm:p-6 text-center border-b border-[#B48C3C]/10 ${
                               isFeaturedCol ? "bg-[#073B2A]/[0.02] border-l border-r border-[#D4A94F]/20" : ""
                             }`}
                           >
                             {typeof val === "boolean" ? (
                               val ? (
-                                <CheckCircle2 className="w-5 h-5 text-[#073B2A] mx-auto" />
+                                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#073B2A] mx-auto" />
                               ) : (
-                                <MinusCircle className="w-5 h-5 text-[#17352B]/20 mx-auto" />
+                                <MinusCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#17352B]/20 mx-auto" />
                               )
                             ) : (
-                              <span className="text-[14px] text-[#17352B] font-medium">
+                              <span className="text-[12px] sm:text-[14px] text-[#17352B] font-medium">
                                 {val}
                               </span>
                             )}
@@ -269,7 +259,6 @@ export default function SponsorsPageSection() {
           CTA FOOTER
           ======================================================== */}
       <div className="relative w-full bg-[#073B2A] overflow-hidden rounded-t-[40px] lg:rounded-t-[80px]">
-        {/* Subtle gold circular lines in background */}
         <div className="absolute top-[-50%] left-[-10%] w-[600px] h-[600px] rounded-full border-[1px] border-[#C89B3C]/15 pointer-events-none" />
         <div className="absolute bottom-[-30%] right-[-5%] w-[500px] h-[500px] rounded-full border-[1px] border-[#C89B3C]/10 pointer-events-none" />
         
@@ -325,10 +314,9 @@ export default function SponsorsPageSection() {
         </div>
       </div>
       
-      {/* Global CSS for custom scrollbar within this component scope */}
       <style dangerouslySetInnerHTML={{__html: `
         .custom-scrollbar::-webkit-scrollbar {
-          height: 8px;
+          height: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
           background: rgba(180,140,60,0.05);
@@ -349,8 +337,7 @@ export default function SponsorsPageSection() {
       `}} />
     </section>
 
-      {/* Sponsor Modal */}
-      <SponsorModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    <SponsorModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }
