@@ -41,7 +41,7 @@ export const conclaveJourneyData = {
         {
           id: "d1-1",
           tag: "Ceremony",
-          description: "Official inauguration, VC + chief guest + Auroville Foundation address",
+          description: "Official inauguration, Vice-Chancellor and chief guest",
           iconName: "Landmark",
         },
         {
@@ -98,7 +98,7 @@ export const conclaveJourneyData = {
         {
           id: "d2-1",
           tag: "Ritual",
-          description: "Dawn walk + Matrimandir sitting",
+          description: "Dawn walk",
           iconName: "Sunrise",
         },
         {
@@ -130,7 +130,7 @@ export const conclaveJourneyData = {
           id: "d2-6",
           tag: "Immersion",
           description:
-            "Auroville enterprise tours — Matrimandir, Universal, AuroSoT, ATF, Citadines, etc.",
+            "Auroville enterprise tours",
           iconName: "Compass",
         },
         {

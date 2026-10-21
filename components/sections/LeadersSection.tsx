@@ -15,14 +15,14 @@ const leaders = [
     image: "/leaders/ashok kumar.png",
     layout: "portrait-left",
   },
-  {
-    id: "jayanti-ravi",
-    name: "Dr. Jayanti S. Ravi",
-    role: "IAS Secretary,\nAuroville Foundation",
-    bio: "Dr. Jayanti S. Ravi has served as Secretary of the Auroville Foundation since July 2021, as chief executive and administrative head of the township. A 1991-batch IAS officer of the Gujarat cadre, she brings three decades of government leadership across healthcare, education and rural development...",
-    image: "/leaders/jayanti s ravi.png",
-    layout: "portrait-right",
-  },
+  // {
+  //   id: "jayanti-ravi",
+  //   name: "Dr. Jayanti S. Ravi",
+  //   role: "IAS Secretary,\nAuroville Foundation",
+  //   bio: "Dr. Jayanti S. Ravi has served as Secretary of the Auroville Foundation since July 2021, as chief executive and administrative head of the township. A 1991-batch IAS officer of the Gujarat cadre, she brings three decades of government leadership across healthcare, education and rural development...",
+  //   image: "/leaders/jayanti s ravi.png",
+  //   layout: "portrait-right",
+  // },
   {
     id: "shivakiran",
     name: "Dr Shivakiran Makam",

@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "motion/react";
 import { Handshake, ArrowRight, CheckCircle2, MinusCircle } from "lucide-react";
 import { sponsorTiers, sponsorFeatureRows } from "@/data/sponsorship";
@@ -225,26 +223,6 @@ export default function SponsorsPageSection() {
                   </tr>
                 </thead>
                 <tbody>
-                  {/* PRICE ROW */}
-                  <tr className="group transition-colors hover:bg-black/5">
-                    <td className="sticky left-0 z-10 bg-[#FBF9F4] group-hover:bg-[#F3EFE7] p-4 sm:p-6 border-b border-[#B48C3C]/10 transition-colors shadow-[4px_0_16px_rgba(0,0,0,0.03)] sm:shadow-none">
-                      <span className="text-[11px] sm:text-[13px] font-bold tracking-[0.1em] uppercase text-[#17352B]">
-                        PRICE
-                      </span>
-                    </td>
-                    {sponsorTiers.map((tier) => (
-                      <td
-                        key={`price-${tier.id}`}
-                        className={`p-6 text-center border-b border-[#B48C3C]/10 bg-[#F5E5DC]/50 ${
-                          tier.isFeatured ? "border-l border-r border-[#D4A94F]/30" : ""
-                        }`}
-                      >
-                        <span className="text-[18px] sm:text-[20px] font-bold text-[#073B2A]">
-                          {tier.price}
-                        </span>
-                      </td>
-                    ))}
-                  </tr>
 
                   {/* FEATURE ROWS */}
                   {sponsorFeatureRows.map((row) => (
