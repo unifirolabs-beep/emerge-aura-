@@ -1,240 +1,357 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
-import { Calendar, MapPin, Sparkles, ArrowRight, ArrowUpRight } from "lucide-react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
+import {
+  Calendar,
+  MapPin,
+  Sparkles,
+  ArrowRight,
+  ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { heroSlides } from "@/data/heroSlides";
 
-const EASE_CUBIC: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const AUTOPLAY_DURATION = 6000; // 6 seconds per slide
 
 export default function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
   const shouldReduceMotion = useReducedMotion();
+
+  const progressStartTimeRef = useRef<number>(Date.now());
+  const elapsedBeforePauseRef = useRef<number>(0);
+  const animFrameRef = useRef<number | null>(null);
+  const isPausedRef = useRef(false);
+
+  useEffect(() => {
+    isPausedRef.current = isPaused;
+  }, [isPaused]);
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % heroSlides.length);
+    setProgress(0);
+    progressStartTimeRef.current = Date.now();
+    elapsedBeforePauseRef.current = 0;
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+    setProgress(0);
+    progressStartTimeRef.current = Date.now();
+    elapsedBeforePauseRef.current = 0;
+  }, []);
+
+  const handleSelectSlide = (index: number) => {
+    if (index === currentIndex) return;
+    setCurrentIndex(index);
+    setProgress(0);
+    progressStartTimeRef.current = Date.now();
+    elapsedBeforePauseRef.current = 0;
+  };
+
+  // 6s Autoplay Timer
+  useEffect(() => {
+    progressStartTimeRef.current = Date.now();
+    elapsedBeforePauseRef.current = 0;
+
+    const tick = () => {
+      if (!isPausedRef.current) {
+        const now = Date.now();
+        const elapsed = now - progressStartTimeRef.current + elapsedBeforePauseRef.current;
+        const currentProgress = (elapsed / AUTOPLAY_DURATION) * 100;
+
+        if (currentProgress >= 100) {
+          handleNext();
+        } else {
+          setProgress(currentProgress);
+        }
+      }
+      animFrameRef.current = requestAnimationFrame(tick);
+    };
+
+    animFrameRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      if (animFrameRef.current) {
+        cancelAnimationFrame(animFrameRef.current);
+      }
+    };
+  }, [handleNext]);
+
+  // Pause on hover
+  const handleMouseEnter = () => {
+    setIsPaused(true);
+    isPausedRef.current = true;
+    elapsedBeforePauseRef.current += Date.now() - progressStartTimeRef.current;
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false);
+    isPausedRef.current = false;
+    progressStartTimeRef.current = Date.now();
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "ArrowLeft") handlePrev();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleNext, handlePrev]);
+
+  // Touch Swipe
+  const touchStartX = useRef<number | null>(null);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(deltaX) > 40) {
+      if (deltaX < 0) handleNext();
+      else handlePrev();
+    }
+    touchStartX.current = null;
+  };
+
+  const currentSlide = heroSlides[currentIndex];
 
   return (
     <section
       id="hero"
-      aria-label="Emerge Auro Conclave Hero"
-      className="relative w-full bg-[#F5F1E8] text-[#073B2A] pt-32 sm:pt-40 lg:pt-48 pb-20 sm:pb-28 lg:pb-36 overflow-hidden select-none min-h-[92vh] flex items-center justify-center"
+      aria-label="Emerge Auro Conclave Hero Carousel"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      className="relative w-full min-h-screen bg-[#031C13] text-[#F5F1E8] py-32 lg:py-48 overflow-hidden select-none flex items-center justify-center"
     >
       {/* ========================================================
-          1. BACKGROUND SACRED GEOMETRY & AMBIENT AURA LAYERS
+          1. BACKGROUND IMAGES SLIDESHOW (Banyan & Matrimandir)
           ======================================================== */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+        {heroSlides.map((slide, idx) => (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
+              idx === currentIndex ? "opacity-100 z-1" : "opacity-0 z-0 pointer-events-none"
+            }`}
+          >
+            <Image
+              src={slide.image}
+              alt={slide.alt}
+              fill
+              priority={idx === 0}
+              sizes="100vw"
+              quality={92}
+              className="object-cover object-center w-full h-full"
+            />
+          </div>
+        ))}
 
-      {/* Top-Right Signature Champagne Gold Sphere & Orbital Rings */}
-      <div
-        className="absolute -top-20 -right-20 sm:-top-28 sm:-right-28 lg:-top-32 lg:-right-32 pointer-events-none select-none z-0"
-        aria-hidden="true"
-      >
-        <svg
-          className="absolute -top-24 -left-24 w-[480px] h-[480px] sm:w-[620px] sm:h-[620px] lg:w-[720px] lg:h-[720px] pointer-events-none animate-[spin_120s_linear_infinite]"
-          viewBox="0 0 700 700"
-          fill="none"
+        {/* Balanced Scrim Overlays: keeps the background image visible while giving rich contrast for text */}
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-[#021810]/90 via-[#032317]/60 to-[#021810]/50 z-10 pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(3,28,19,0.35)_0%,rgba(2,16,11,0.75)_100%)] z-10 pointer-events-none"
+          aria-hidden="true"
+        />
+
+        {/* Ambient Gold Orbital Rings in corner */}
+        <div
+          className="absolute -top-20 -right-20 sm:-top-28 sm:-right-28 lg:-top-32 lg:-right-32 pointer-events-none select-none z-10 opacity-50"
+          aria-hidden="true"
         >
-          <circle
-            cx="350"
-            cy="350"
-            r="280"
-            stroke="rgba(197, 168, 128, 0.25)"
-            strokeWidth="1"
-          />
-          <circle
-            cx="350"
-            cy="350"
-            r="330"
-            stroke="rgba(197, 168, 128, 0.16)"
-            strokeWidth="1"
-            strokeDasharray="4 6"
-          />
-        </svg>
-
-        <div className="relative w-[220px] h-[220px] sm:w-[320px] sm:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full shadow-[0_20px_60px_rgba(180,140,70,0.18)] mix-blend-multiply overflow-hidden">
-          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_35%_35%,#F5E5BE_0%,#E0B872_35%,#C49548_70%,#916928_100%)] opacity-85" />
-          <div className="absolute inset-0 rounded-full border border-[#FFF3D6]/40 pointer-events-none" />
+          <svg
+            className="absolute -top-24 -left-24 w-[480px] h-[480px] sm:w-[620px] sm:h-[620px] lg:w-[720px] lg:h-[720px] pointer-events-none animate-[spin_120s_linear_infinite]"
+            viewBox="0 0 700 700"
+            fill="none"
+          >
+            <circle cx="350" cy="350" r="280" stroke="rgba(229, 193, 90, 0.3)" strokeWidth="1" />
+            <circle cx="350" cy="350" r="330" stroke="rgba(229, 193, 90, 0.18)" strokeWidth="1" strokeDasharray="4 6" />
+          </svg>
         </div>
       </div>
 
-      {/* Bottom-Left Ambient Sacred Orbit */}
-      <div
-        className="absolute -bottom-24 -left-24 sm:-bottom-32 sm:-left-32 pointer-events-none select-none z-0 opacity-40"
-        aria-hidden="true"
-      >
-        <svg
-          className="w-[420px] h-[420px] sm:w-[560px] sm:h-[560px]"
-          viewBox="0 0 500 500"
-          fill="none"
-        >
-          <circle
-            cx="250"
-            cy="250"
-            r="220"
-            stroke="#C9A15B"
-            strokeWidth="1"
-            strokeOpacity="0.4"
-          />
-          <circle
-            cx="250"
-            cy="250"
-            r="160"
-            stroke="#C9A15B"
-            strokeWidth="0.8"
-            strokeOpacity="0.3"
-            strokeDasharray="6 8"
-          />
-        </svg>
+      {/* ========================================================
+          2. SLIDE CONTENT CONTAINER
+          ======================================================== */}
+      <div className="relative z-20 max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center justify-center text-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide.id}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -15 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center"
+          >
+            {/* Eyebrow Pill / Rule */}
+            <div className="flex items-center justify-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <span className="w-8 sm:w-14 h-[1.5px] bg-[#E5C15A]" />
+              <span className="text-[11px] sm:text-[12px] font-sans font-semibold tracking-[0.24em] sm:tracking-[0.28em] text-[#E5C15A] uppercase select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                {currentSlide.eyebrow}
+              </span>
+              <span className="w-8 sm:w-14 h-[1.5px] bg-[#E5C15A]" />
+            </div>
+
+            {/* Grand Headline */}
+            <h1 className="font-editorial text-[44px] sm:text-[62px] md:text-[78px] lg:text-[92px] xl:text-[104px] font-semibold text-[#FFFFFF] tracking-tight leading-[0.94] mb-3 sm:mb-4 drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]">
+              {currentSlide.headlineMain}{" "}
+              <span className="text-[#E5C15A] font-normal italic">
+                {currentSlide.headlineAccent}
+              </span>
+            </h1>
+
+            {/* Editorial Sub-Headline */}
+            <p className="font-editorial text-[19px] sm:text-[23px] lg:text-[27px] font-normal text-[#FAF6EE] tracking-tight leading-snug max-w-[850px] text-balance mb-2.5 sm:mb-3.5 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
+              {currentSlide.subHeadline}
+            </p>
+
+            {/* Narrative Description */}
+            <p className="font-sans text-[14px] sm:text-[15.5px] lg:text-[16px] text-[#F0EAE0] leading-relaxed max-w-[720px] text-balance mb-5 sm:mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              {currentSlide.narrative}
+            </p>
+
+            {/* Slide 1: Event Metadata Chips */}
+            {currentSlide.chips && currentSlide.chips.length > 0 && (
+              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-7">
+                {currentSlide.chips.map((chip, idx) => (
+                  <div
+                    key={idx}
+                    className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-[#E5C15A]/50 shadow-[0_4px_16px_rgba(0,0,0,0.4)] text-[11.5px] sm:text-xs font-sans text-[#FFFFFF]"
+                  >
+                    {chip.icon === "calendar" && <Calendar className="w-3.5 h-3.5 text-[#E5C15A]" />}
+                    {chip.icon === "map" && <MapPin className="w-3.5 h-3.5 text-[#E5C15A]" />}
+                    {chip.icon === "sparkles" && <Sparkles className="w-3.5 h-3.5 text-[#E5C15A]" />}
+                    <span className="font-semibold tracking-wide drop-shadow-sm">{chip.text}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Slide 2: Participating Ecosystem Tags */}
+            {currentSlide.ecosystemTags && currentSlide.ecosystemTags.length > 0 && (
+              <div className="pt-0.5 pb-0.5 mb-5 sm:mb-6 w-full max-w-[840px]">
+                <p className="text-[10px] sm:text-[10.5px] font-sans font-semibold tracking-[0.24em] text-[#E5C15A] uppercase text-center mb-2.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  PARTICIPATING ECOSYSTEM
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-[11.5px] sm:text-xs font-sans text-[#FFFFFF] font-medium">
+                  {currentSlide.ecosystemTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-[#E5C15A]/45 hover:border-[#E5C15A] hover:bg-black/75 transition-colors duration-200 shadow-md drop-shadow-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Primary Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 w-full max-w-[480px]">
+              <a
+                href={currentSlide.primaryCta.href}
+                target={currentSlide.primaryCta.isExternal ? "_blank" : undefined}
+                rel={currentSlide.primaryCta.isExternal ? "noopener noreferrer" : undefined}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full bg-[#E5C15A] text-[#050E0B] hover:bg-[#D4A63A] hover:text-[#000000] transition-all duration-300 font-sans text-[12.5px] sm:text-[13.5px] font-bold tracking-[0.14em] uppercase shadow-[0_4px_24px_rgba(229,193,90,0.4)] hover:shadow-[0_8px_32px_rgba(229,193,90,0.6)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5C15A]"
+              >
+                <span>{currentSlide.primaryCta.label}</span>
+                <ArrowRight className="w-4 h-4 text-[#050E0B] transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+
+              <a
+                href={currentSlide.secondaryCta.href}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-4 rounded-full bg-black/40 backdrop-blur-md border border-white/40 text-[#FFFFFF] hover:bg-white hover:text-[#050E0B] hover:border-white transition-all duration-300 font-sans text-[12.5px] sm:text-[13.5px] font-semibold tracking-[0.14em] uppercase shadow-[0_4px_16px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                <span>{currentSlide.secondaryCta.label}</span>
+                <ArrowUpRight className="w-4 h-4 text-current transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* Center Warm Radial Glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] sm:w-[1100px] h-[500px] sm:h-[700px] bg-[radial-gradient(ellipse_at_center,rgba(216,181,106,0.14)_0%,transparent_70%)] pointer-events-none z-0"
-        aria-hidden="true"
-      />
-
-      {/* Subtle Ambient SVG Waves across Canvas */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none select-none z-0"
-        viewBox="0 0 1440 900"
-        preserveAspectRatio="none"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M -60,200 C 180,240 380,420 260,680"
-          stroke="rgba(180, 140, 70, 0.12)"
-          strokeWidth="1"
-        />
-        <path
-          d="M 1200,100 C 1320,300 1460,520 1520,700"
-          stroke="rgba(180, 140, 70, 0.08)"
-          strokeWidth="1"
-        />
-      </svg>
-
       {/* ========================================================
-          2. MAIN HERO CONTENT CONTAINER
+          3. CONTROLS: ARROWS & BOTTOM PROGRESS
           ======================================================== */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center text-center">
-        {/* Eyebrow Pill / Rule */}
-        <motion.div
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: EASE_CUBIC }}
-          className="flex items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-7"
-        >
-          <span className="w-8 sm:w-14 h-[1.5px] bg-[#C59A45]/70" />
-          <span className="text-[11px] sm:text-[12.5px] font-sans font-semibold tracking-[0.26em] sm:tracking-[0.3em] text-[#8C733E] uppercase select-none">
-            INDIA&apos;S FIRST CONSCIOUS CAPITAL CONCLAVE
-          </span>
-          <span className="w-8 sm:w-14 h-[1.5px] bg-[#C59A45]/70" />
-        </motion.div>
+      {/* Left Chevron Button */}
+      <button
+        type="button"
+        onClick={handlePrev}
+        aria-label="Previous Slide"
+        className="group absolute left-4 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 lg:w-13 lg:h-13 rounded-full flex items-center justify-center bg-black/45 hover:bg-black/75 border border-white/35 hover:border-[#E5C15A] backdrop-blur-md text-[#F7F3E8] hover:text-[#E5C15A] transition-all duration-300 active:scale-95 shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
+      >
+        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:-translate-x-0.5" />
+      </button>
 
-        {/* Grand Headline: EMERGE AURO */}
-        <motion.h1
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 0.1, ease: EASE_CUBIC }}
-          className="font-editorial text-[56px] sm:text-[84px] md:text-[104px] lg:text-[124px] xl:text-[136px] font-semibold text-[#073B2A] tracking-tight leading-[0.92] mb-5 sm:mb-7"
-        >
-          EMERGE <span className="text-[#C59A45] font-normal italic">AURO</span>
-        </motion.h1>
+      {/* Right Chevron Button */}
+      <button
+        type="button"
+        onClick={handleNext}
+        aria-label="Next Slide"
+        className="group absolute right-4 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 lg:w-13 lg:h-13 rounded-full flex items-center justify-center bg-black/45 hover:bg-black/75 border border-white/35 hover:border-[#E5C15A] backdrop-blur-md text-[#F7F3E8] hover:text-[#E5C15A] transition-all duration-300 active:scale-95 shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
+      >
+        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:translate-x-0.5" />
+      </button>
 
-        {/* Editorial Sub-Headline */}
-        <motion.p
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: EASE_CUBIC }}
-          className="font-editorial text-[22px] sm:text-[28px] lg:text-[34px] font-normal text-[#17352B]/90 tracking-tight leading-snug max-w-[880px] text-balance mb-4 sm:mb-5"
+      {/* Bottom Progress Bar & Slide Dots */}
+      <div className="absolute bottom-5 right-5 sm:bottom-8 sm:right-8 lg:bottom-10 lg:right-10 z-30 pointer-events-auto">
+        <div
+          className="flex items-center gap-3 sm:gap-4 bg-black/55 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/25 shadow-[0_4px_20px_rgba(0,0,0,0.4)] select-none"
+          role="region"
+          aria-label="Slide Indicator"
         >
-          Where Purpose Meets Capital • Innovation Meets Consciousness
-        </motion.p>
-
-        {/* Narrative Description */}
-        <motion.p
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: EASE_CUBIC }}
-          className="font-sans text-[15px] sm:text-[17px] lg:text-[18px] text-[#243E33]/85 leading-relaxed max-w-[760px] text-balance mb-8 sm:mb-10"
-        >
-          Uniting startups, investors, researchers, institutions, and thinkers in
-          Pondicherry & Auroville to build a regenerative future founded on
-          People, Planet, and Prosperity.
-        </motion.p>
-
-        {/* Key Event Metadata Chips */}
-        <motion.div
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.38, ease: EASE_CUBIC }}
-          className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 mb-10 sm:mb-12"
-        >
-          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-white/80 border border-[#EADBCA] shadow-[0_2px_10px_rgba(0,0,0,0.025)] text-xs sm:text-[13px] font-sans text-[#073B2A]">
-            <Calendar className="w-3.5 h-3.5 text-[#C59A45]" />
-            <span className="font-semibold">28 October 2026 & 5–6 December 2026</span>
+          {/* Slide Number 01 / 02 */}
+          <div className="flex items-baseline gap-1 text-[13px] sm:text-sm font-medium tracking-widest text-[#F7F3E8] font-sans">
+            <span className="font-semibold text-[#E5C15A]">{currentSlide.slideNumber}</span>
+            <span className="text-white/40 text-xs">/</span>
+            <span className="text-white/60 text-xs">0{heroSlides.length}</span>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-white/80 border border-[#EADBCA] shadow-[0_2px_10px_rgba(0,0,0,0.025)] text-xs sm:text-[13px] font-sans text-[#073B2A]">
-            <MapPin className="w-3.5 h-3.5 text-[#C59A45]" />
-            <span className="font-semibold">Pondicherry & Auroville</span>
+          {/* Autoplay Progress Line */}
+          <div className="relative w-14 sm:w-20 h-[2.5px] bg-white/25 rounded-full overflow-hidden">
+            <div
+              className="absolute top-0 left-0 bottom-0 bg-[#E5C15A] rounded-full transition-[width] ease-linear"
+              style={{
+                width: `${Math.min(100, Math.max(0, progress))}%`,
+                transitionDuration: isPaused ? "0ms" : "50ms",
+              }}
+              aria-hidden="true"
+            />
           </div>
 
-          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-white/80 border border-[#EADBCA] shadow-[0_2px_10px_rgba(0,0,0,0.025)] text-xs sm:text-[13px] font-sans text-[#073B2A]">
-            <Sparkles className="w-3.5 h-3.5 text-[#C59A45]" />
-            <span className="font-semibold">Pondicherry Univ & Bharat Nivas</span>
-          </div>
-        </motion.div>
-
-        {/* Primary Action Buttons */}
-        <motion.div
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 0.45, ease: EASE_CUBIC }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 w-full max-w-[480px] mb-14 sm:mb-16"
-        >
-          <a
-            href="https://forms.zohopublic.in/infosectio1/form/ClientDetails/formperma/Ou2moWIn4JWNQPOqsPB0tHxOEBFwqaz3oXxgB1h3Sms"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full bg-[#073B2A] text-[#F5F1E8] hover:bg-[#0A4D37] hover:text-[#FFFFFF] transition-all duration-300 font-sans text-[12.5px] sm:text-[13.5px] font-semibold tracking-[0.14em] uppercase shadow-[0_4px_20px_rgba(7,59,42,0.22)] hover:shadow-[0_8px_28px_rgba(7,59,42,0.3)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C59A45]"
-          >
-            <span>REGISTER FOR CONCLAVE</span>
-            <ArrowRight className="w-4 h-4 text-[#C59A45] transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
-
-          <a
-            href="#about"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-4 rounded-full bg-white/70 border border-[#C5A880]/80 text-[#073B2A] hover:bg-[#C5A880] hover:text-[#FFFFFF] hover:border-[#C5A880] transition-all duration-300 font-sans text-[12.5px] sm:text-[13.5px] font-semibold tracking-[0.14em] uppercase shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880]"
-          >
-            <span>EXPLORE CONCLAVE</span>
-            <ArrowUpRight className="w-4 h-4 text-current transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
-        </motion.div>
-
-        {/* Participating Ecosystem Strip */}
-        <motion.div
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.55, ease: EASE_CUBIC }}
-          className="pt-7 sm:pt-8 border-t border-[#073B2A]/10 w-full max-w-[880px]"
-        >
-          <p className="text-[10.5px] sm:text-[11px] font-sans font-semibold tracking-[0.24em] text-[#8C733E] uppercase text-center mb-3 sm:mb-4">
-            PARTICIPATING ECOSYSTEM
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 text-xs sm:text-[12.5px] font-sans text-[#073B2A]/85 font-medium">
-            {[
-              "Startups",
-              "Conscious Investors",
-              "Academia & Research",
-              "Enterprise Leaders",
-              "Social Innovators",
-              "Policy Makers",
-              "Auroville Township",
-            ].map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 rounded-full bg-[#EADBCA]/45 border border-[#C5A880]/30 hover:border-[#C5A880] hover:bg-white transition-colors duration-200"
+          {/* Interactive Slide Dots */}
+          <div className="flex items-center gap-1.5" role="tablist" aria-label="Slide selector">
+            {heroSlides.map((_, idx) => (
+              <button
+                key={idx}
+                role="tab"
+                aria-selected={idx === currentIndex}
+                aria-label={`Go to slide ${idx + 1}`}
+                onClick={() => handleSelectSlide(idx)}
+                className="p-1 focus:outline-none rounded-full"
               >
-                {tag}
-              </span>
+                <span
+                  className={`block rounded-full transition-all duration-300 ${
+                    idx === currentIndex
+                      ? "w-3.5 h-1.5 bg-[#E5C15A]"
+                      : "w-1.5 h-1.5 bg-white/40 hover:bg-white/80"
+                  }`}
+                />
+              </button>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
