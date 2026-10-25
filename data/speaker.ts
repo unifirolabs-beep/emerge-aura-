@@ -84,8 +84,8 @@ export const speakers: Speaker[] = [
         id: "13",
         img: "/images/speakers/speaker13.png",
         name: "Dr (Inv) Shivakiran Makam",
-        designation: "Co Convenor, Emerge Auro Director Section Infin8 Foundation"
+        designation: "Co Convenor, Emerge Auro Director Section Infin-8 Foundation"
     }
 ];
 
-export const speaker = speakers;
+export const speaker = speakers;

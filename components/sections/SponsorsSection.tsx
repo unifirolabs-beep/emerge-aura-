@@ -112,7 +112,7 @@ export default function SponsorsSection() {
                 viewport={{ once: true, amount: 0.3 }}
                 className="font-sans text-[20px] sm:text-[24px] text-[#063522]/90 font-normal leading-[1.5] max-w-[500px] mb-16"
               >
-                A special thanks to the individuals who made this event possible
+                Thanks to the organisations that make this event possible
               </motion.p>
 
               {/* Three Supporting Points */}

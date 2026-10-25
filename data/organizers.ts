@@ -41,7 +41,7 @@ export const organizersData: OrganizerItem[] = [
     paragraphs: "Pondicherry University hosts Day 1 of EMERGE AURO. Established by an Act of Parliament in 1985 and funded through the Ministry of Education, it is a premier central university known for its contributions to higher education, research, and innovation. The university opens the conclave with the Innovation Challenge finale, the School Science Model Expo, and an academic showcase focused on intellectual property, research, and commercialisation.",
   },
   {
-    id: "dpurpose-foundation",
+    id: "dPurpose-foundation",
     number: "04",
     name: "DPurpose Foundation",
     logo: "/organizerslogos/D Purpose.png",

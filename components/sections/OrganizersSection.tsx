@@ -131,7 +131,7 @@ export default function OrganizersSection() {
     },
     {
       label: "Execution Partners",
-      ids: ["dpurpose-foundation", "village-technology-school"],
+      ids: ["DPurpose-foundation", "village-technology-school"],
     },
     {
       label: "Programme Partner",

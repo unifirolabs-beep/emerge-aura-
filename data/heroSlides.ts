@@ -50,7 +50,7 @@ export const heroSlides: HeroSlideData[] = [
       },
       {
         icon: "sparkles",
-        text: "Pondicherry Univ & Bharat Nivas",
+        text: "Pondicherry University & Bharat Nivas, Auroville",
       },
     ],
     primaryCta: {

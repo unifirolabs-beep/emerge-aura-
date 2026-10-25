@@ -17,8 +17,8 @@ const organizers = [
   { 
     name: "Desika Prabhakar", 
     role: "Founder, Director", 
-    org: "Dpurpose Foundation", 
-    image: "/organizers/deeksha prabhakar.png", 
+    org: "DPurpose Foundation", 
+    image: "/organizers/desika prabhakar.png", 
     gradient: "from-[#FF5A6E] to-[#FF8A6B]" 
   },
   { 

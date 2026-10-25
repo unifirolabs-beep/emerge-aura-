@@ -175,7 +175,7 @@ export const sponsorFeatureRows: SponsorFeatureRow[] = [
   },
   {
     id: "f14",
-    feature: "Networking dinner, Day 2 and Day3",
+    feature: "Networking dinner, 5 Dec",
     enabling: true,
     impact: true,
     catalyst: true,

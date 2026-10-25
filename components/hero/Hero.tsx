@@ -130,7 +130,7 @@ export default function Hero() {
       onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className="relative w-full min-h-screen bg-[#031C13] text-[#F5F1E8] py-32 lg:py-48 overflow-hidden select-none flex items-center justify-center"
+      className="relative w-full h-[100dvh] min-h-[100dvh] bg-[#031C13] text-[#F5F1E8] overflow-hidden select-none flex flex-col items-center justify-center"
     >
       {/* ========================================================
           1. BACKGROUND IMAGES SLIDESHOW (Banyan & Matrimandir)
@@ -195,7 +195,7 @@ export default function Hero() {
             className="flex flex-col items-center"
           >
             {/* Eyebrow Pill / Rule */}
-            <div className="flex items-center justify-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+            <div className="flex items-center justify-center gap-3 pt-32 sm:gap-4 mb-3 sm:mb-4">
               <span className="w-8 sm:w-14 h-[1.5px] bg-[#E5C15A]" />
               <span className="text-[11px] sm:text-[12px] font-sans font-semibold tracking-[0.24em] sm:tracking-[0.28em] text-[#E5C15A] uppercase select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                 {currentSlide.eyebrow}

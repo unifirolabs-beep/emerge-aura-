@@ -65,18 +65,30 @@ export const conclaveJourneyData = {
         },
         {
           id: "d1-5",
+          tag: "Prize Purse",
+          description: "Prize purse ₹1,75,000 (1st ₹1,00,000 / 2nd ₹50,000 / 3rd ₹25,000). Seven domains: Health, Food and Agriculture, Climate, Technology, Livelihoods, Human Wellbeing, Future of Society",
+          iconName: "Coins",
+        },
+        {
+          id: "d1-6",
+          tag: "Schedule",
+          description: " Joint inauguration 10:00, pitching 11:00 to 13:00, prizes 16:00 to 17:00",
+          iconName: "Calendar",
+        },
+        {
+          id: "d1-7",
           tag: "Competition",
           description: "EMERGE for Good Innovation Challenge. Single round of team pitches to jury panels. Top 3 teams present at the Conclave on 5–6 Dec",
           iconName: "Trophy",
         },
         {
-          id: "d1-6",
+          id: "d1-8",
           tag: "Recognition",
           description: "Awards for both competitions",
           iconName: "Sparkles",
         },
         {
-          id: "d1-7",
+          id: "d1-9",
           tag: "Networking",
           description:
             "Student-founder interactions",
@@ -145,6 +157,18 @@ export const conclaveJourneyData = {
           description: "Art, live sets, film, farmers' market and cultural evening",
           iconName: "Music",
         },
+        {
+          id: "d2-8",
+          tag: "Tracks",
+          description: "Three startup tracks: Startup Pitching, Product Launch, B2B Networking. Product Launch is missing today",
+          iconName: "Trophy",
+        },
+        {
+          id: "d2-9",
+          tag: "Performance",
+          description: "Rhythmic Energy, 17:30 to 19:30, Bharat Nivas",
+          iconName: "Music",
+        },
       ],
     },
     {
@@ -208,6 +232,12 @@ export const conclaveJourneyData = {
             "Closing keynote, multicultural send-off",
           iconName: "CheckCircle2",
         },
+        {
+          id: "d3-9",
+          tag: "Theme",
+          description: "Industry, and Puducherry as a destination for tourism and startups",
+          iconName: "Mountain",
+        }
       ],
     },
   ] as DayAgenda[],

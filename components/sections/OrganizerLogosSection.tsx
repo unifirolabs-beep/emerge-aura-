@@ -14,8 +14,8 @@ const sponsorSections = [
     logos: [
       {
         src: "/sponsers/prizemoneysponser/iinvsys.jpeg",
-        alt: "Iinvsys",
-        name: "Iinvsys",
+        alt: "IINVSYS",
+        name: "IINVSYS",
       },
     ],
   },

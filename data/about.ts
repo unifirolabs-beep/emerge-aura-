@@ -42,7 +42,7 @@ export const aboutData: AboutContentData = {
       number: "01",
       label: "THE IDEA",
       paragraph:
-        "EMERGE AURO is India's first Conscious Capital Conclave — three days that places startup founders at the centre, surround them with serious capital and policy architecture, and ground the whole thing in Auroville's fifty-year practice of human unity and ecological stewardship.",
+        "EMERGE AURO is India's first Conscious Capital Conclave — three days that place startup founders at the centre, surround them with serious capital and policy architecture, and ground the whole thing in Auroville's fifty-year practice of human unity and ecological stewardship.",
     },
     {
       number: "02",

@@ -138,14 +138,13 @@ export default function StakeholderSection() {
 
           {/* Main Headline */}
           <h2 className="font-editorial text-[48px] sm:text-[68px] md:text-[80px] lg:text-[92px] font-normal leading-[0.94] tracking-tight text-[#10251D] text-balance my-2">
-            WHY SHOULD <br />
-            YOU BE THERE?
+            WHY SHOULD YOU BE THERE?
           </h2>
 
           {/* Supporting Text */}
           <p className="font-sans text-[14px] sm:text-[15.5px] md:text-[16.5px] text-[#2C3E35] font-normal leading-relaxed max-w-[760px] text-balance mt-6 opacity-95">
             For the first time in India, EMERGE AURO brings together the people who will explore
-            Conscious Capitalism — businesses that create value not only for itself, but for people,
+            Conscious Capitalism — businesses that create  value not only for themselves, but for people,
             planet and the future.
           </p>
 
