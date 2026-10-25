@@ -92,7 +92,7 @@ export default function OrganizingTeam() {
     isAnimating.current = true;
     
     let currentX = x.get();
-    const jumpAmount = itemWidth * 2; // Jump 2 cards
+    const jumpAmount = itemWidth; // Jump 1 cards
     
     // Wrap instantly if we are too close to the right edge to jump backwards
     if (currentX + jumpAmount > 0) {
@@ -113,7 +113,7 @@ export default function OrganizingTeam() {
     isAnimating.current = true;
     
     let currentX = x.get();
-    const jumpAmount = itemWidth * 2;
+    const jumpAmount = itemWidth;
     
     // Wrap instantly if we are too close to the left edge
     if (currentX - jumpAmount < -contentWidth) {

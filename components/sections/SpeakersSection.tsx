@@ -45,7 +45,7 @@ export default function SpeakersSection() {
     isAnimating.current = true;
 
     let currentX = x.get();
-    const jumpAmount = itemWidth * 2;
+    const jumpAmount = itemWidth;
 
     if (currentX + jumpAmount > 0) {
       currentX -= contentWidth;
@@ -67,7 +67,7 @@ export default function SpeakersSection() {
     isAnimating.current = true;
 
     let currentX = x.get();
-    const jumpAmount = itemWidth * 2;
+    const jumpAmount = itemWidth;
 
     if (currentX - jumpAmount < -contentWidth) {
       currentX += contentWidth;
@@ -293,10 +293,6 @@ export default function SpeakersSection() {
 
       {/* Bottom Hint */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mt-6 flex items-center justify-between text-xs font-sans text-[#5A6D61]">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#C9A15B] animate-pulse" />
-          <span>Hover or touch to pause continuous scroll</span>
-        </div>
         <div className="hidden sm:block text-[#8C6D34] font-medium">
           13 Distinguished Speakers & Visionaries
         </div>
