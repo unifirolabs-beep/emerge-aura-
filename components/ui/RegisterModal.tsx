@@ -147,26 +147,44 @@ export default function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
-                className="group relative flex items-start gap-4 p-5 rounded-2xl bg-white border border-[#E7DEC8] hover:border-[#C89B3C] hover:shadow-[0_12px_32px_rgba(7,59,42,0.08)] hover:-translate-y-0.5 transition-all duration-300"
+                className="group relative flex flex-col gap-3 p-5 rounded-2xl bg-white border border-[#E7DEC8] hover:border-[#C89B3C] hover:shadow-[0_12px_32px_rgba(7,59,42,0.08)] hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#C89B3C]/10 border border-[#C89B3C]/20 flex items-center justify-center text-[#996D18] group-hover:bg-[#C89B3C] group-hover:text-white transition-colors shrink-0">
-                  <Handshake className="w-6 h-6 stroke-[1.8]" />
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-[#C89B3C]/10 border border-[#C89B3C]/20 flex items-center justify-center text-[#996D18] group-hover:bg-[#C89B3C] group-hover:text-white transition-colors shrink-0">
+                    <Handshake className="w-6 h-6 stroke-[1.8]" />
+                  </div>
+                  <div className="flex-1 pr-6">
+                    <div className="flex items-center gap-2 mb-1 flex-wrap">
+                      <h3 className="font-editorial text-[19px] sm:text-[20px] font-bold text-[#073B2A] group-hover:text-[#C89B3C] transition-colors">
+                        B2B Registration
+                      </h3>
+                      <span className="text-[10px] font-sans font-bold tracking-wider uppercase text-[#C89B3C] bg-[#C89B3C]/10 px-2 py-0.5 rounded-full">
+                        Networking
+                      </span>
+                      <span className="text-[10px] font-sans font-bold tracking-wider uppercase text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full">
+                        Early Bird
+                      </span>
+                    </div>
+                    <p className="text-[13px] font-sans text-[#17352B]/85 leading-relaxed">
+                      Round-table rotations where startups, MSMEs, corporates and buyers meet in groups of five for business conversations. Open to businesses from any sector.
+                    </p>
+                  </div>
+                  <div className="absolute top-5 right-5 w-7 h-7 rounded-full bg-[#FAF7F0] flex items-center justify-center text-[#073B2A]/50 group-hover:text-[#C89B3C] group-hover:bg-[#C89B3C]/10 transition-colors">
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
                 </div>
-                <div className="flex-1 pr-6">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h3 className="font-editorial text-[19px] sm:text-[20px] font-bold text-[#073B2A] group-hover:text-[#C89B3C] transition-colors">
-                      B2B Registration
-                    </h3>
-                    <span className="text-[10px] font-sans font-bold tracking-wider uppercase text-[#C89B3C] bg-[#C89B3C]/10 px-2 py-0.5 rounded-full">
-                      Networking
+
+                {/* Info box below B2B Registration */}
+                <div className="bg-[#FAF7F0] rounded-xl p-3 border border-[#E7DEC8] text-[12px] font-sans text-[#17352B]/85 space-y-1">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#996D18] shrink-0 mt-0.5" />
+                    <span>
+                      <strong>Early bird: ₹1,999 + GST</strong> till 25 Nov 2026, 11:59 PM IST. ₹3,999 + GST from 26 Nov 2026.
                     </span>
                   </div>
-                  <p className="text-[13px] font-sans text-[#17352B]/75 leading-relaxed">
-                    Structured round-table rotations matching startups, MSMEs, corporates, and buyers for business conversations.
+                  <p className="text-[#17352B]/75 pl-6 leading-relaxed">
+                    Includes Day 1 B2B round tables at Bhumika Hall, Bharat Nivas, Auroville, plus meals and a welcome kit.
                   </p>
-                </div>
-                <div className="absolute top-5 right-5 w-7 h-7 rounded-full bg-[#FAF7F0] flex items-center justify-center text-[#073B2A]/50 group-hover:text-[#C89B3C] group-hover:bg-[#C89B3C]/10 transition-colors">
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </a>
 
@@ -195,7 +213,7 @@ export default function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                       </span>
                     </div>
                     <p className="text-[13px] font-sans text-[#17352B]/85 leading-relaxed">
-                      Startups will pitch directly to investors at PitchFest. Applying is completely free.
+                      Shortlisted startups pitch directly to investors at PitchFest. Open to revenue-generating startups creating social or environmental impact. Applying is completely free.
                     </p>
                   </div>
                   <div className="absolute top-5 right-5 w-7 h-7 rounded-full bg-[#FAF7F0] flex items-center justify-center text-[#073B2A]/50 group-hover:text-[#073B2A] group-hover:bg-[#073B2A]/10 transition-colors">
@@ -204,14 +222,22 @@ export default function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                 </div>
 
                 {/* Clarification banner below Startup Pitching */}
-                <div className="bg-[#FAF7F0] rounded-xl p-3 border border-[#E7DEC8] text-[12px] font-sans text-[#17352B]/85 space-y-1">
+                <div className="bg-[#FAF7F0] rounded-xl p-3.5 border border-[#E7DEC8] text-[12px] font-sans text-[#17352B]/85 space-y-1.5">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#073B2A] shrink-0 mt-0.5" />
                     <span><strong>Top 25 teams</strong> will be shortlisted from applications.</span>
                   </div>
-                  <p className="text-[#17352B]/75 pl-6 leading-relaxed">
-                    Before coming to EMERGE AURO, shortlisted teams will complete registration by paying <strong>₹3,999 + GST</strong> to confirm their pitching slot with investors.
+                  <p className="text-[#17352B]/80 pl-6 leading-relaxed">
+                    Shortlisted teams confirm their pitching slot by paying <strong>₹3,999 + GST</strong>, which includes meals and event facilities.
                   </p>
+                  <p className="text-[#17352B]/75 pl-6 leading-relaxed text-[11.5px]">
+                    Conditional fee waivers are available for strong startups with a valid reason. Request one in the application form.
+                  </p>
+                  <div className="pl-6 pt-1 flex items-center">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11.5px] font-bold bg-[#C89B3C]/15 text-[#855B14] border border-[#C89B3C]/35">
+                      ⏰ Last date to apply: 28 November
+                    </span>
+                  </div>
                 </div>
               </a>
             </div>

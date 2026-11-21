@@ -1,6 +1,12 @@
 export const REGISTRATION_URL =
   "https://forms.zohopublic.in/infosectio1/form/ClientDetails/formperma/Ou2moWIn4JWNQPOqsPB0tHxOEBFwqaz3oXxgB1h3Sms";
 
+export const B2B_REGISTRATION_URL =
+  "https://forms.zohopublic.in/infosectio1/form/FROM/formperma/CiZNCLngp4GIMES69xsXFTyONhnzAebnN61MZRRTf9g";
+
+export const STARTUP_PITCH_REGISTRATION_URL =
+  "https://forms.zohopublic.in/infosectio1/form/EmergePitchFest2026StartupRegistration1/formperma/nEA6Ws3ius3a-s-D1AiygAMnBBNwmHcT4nW6JPlOcCc";
+
 export interface FeatureItem {
   included: boolean;
   text: string;
@@ -10,8 +16,16 @@ export interface PassItem {
   id: string;
   name: string;
   badge?: string;
+  badgeSecondary?: string;
   isPopular?: boolean;
   price: string;
+  priceSuffix?: string;
+  originalPrice?: string;
+  pricingBox?: {
+    earlyBird: string;
+    standard: string;
+    note?: string;
+  };
   period: string;
   description: string;
   features: FeatureItem[];
@@ -101,8 +115,16 @@ export const participateData: ParticipateData = {
     {
       id: "startup-pass",
       name: "Startup Pass",
-      badge: "For Founders",
-      price: "₹3,999",
+      badge: "NETWORKING",
+      badgeSecondary: "EARLY BIRD",
+      price: "₹1,999",
+      priceSuffix: "+ GST (Early Bird)",
+      originalPrice: "₹3,999 + GST",
+      pricingBox: {
+        earlyBird: "Early bird: ₹1,999 + GST till 25 Nov 2026, 11:59 PM IST.",
+        standard: "₹3,999 + GST from 26 Nov 2026.",
+        note: "Includes Day 1 B2B round tables at Bhumika Hall, Bharat Nivas, Auroville, plus meals and a welcome kit.",
+      },
       period: "One Person • Investor Track",
       description:
         "One person. B2B Networking and investor access, Rhythmic Energy concert and networking dinner.",
@@ -114,7 +136,7 @@ export const participateData: ParticipateData = {
         { included: true, text: "Exclusive networking dinner" },
       ],
       ctaText: "Book Startup Pass",
-      ctaHref: REGISTRATION_URL,
+      ctaHref: B2B_REGISTRATION_URL,
     },
   ],
   stallsHeading: "Stall Booking",
