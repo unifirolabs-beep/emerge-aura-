@@ -57,10 +57,10 @@ export const sponsorLogos: SponsorLogoItem[] = [
     tier: "Ecosystem Partner",
   },
   {
-    id: "mathan",
-    name: "Mathan",
+    id: "manthan",
+    name: "Manthan",
     src: "/sponsers/Mathan.png",
-    alt: "Mathan",
+    alt: "Manthan",
     tier: "Ecosystem Partner",
   },
   {

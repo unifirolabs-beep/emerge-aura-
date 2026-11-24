@@ -182,11 +182,11 @@ export default function SpeakersSection() {
             return (
               <div
                 key={`${spk.id}-${idx}`}
-                className="group relative w-[285px] sm:w-[305px] h-[430px] shrink-0 rounded-[20px] bg-[#FFFFFF] border border-[#E3D9C3] hover:border-[#C9A15B] shadow-[0_6px_24px_rgba(7,59,42,0.05)] hover:shadow-[0_16px_38px_rgba(7,59,42,0.12)] transition-all duration-400 flex flex-col overflow-hidden hover:-translate-y-1.5 cursor-pointer"
+                className="group relative w-[285px] sm:w-[305px] h-[445px] shrink-0 rounded-[22px] bg-[#FFFFFF] border border-[#E3D9C3] hover:border-[#C9A15B] shadow-[0_6px_24px_rgba(7,59,42,0.05)] hover:shadow-[0_16px_38px_rgba(7,59,42,0.12)] transition-all duration-400 flex flex-col overflow-hidden hover:-translate-y-1.5 cursor-pointer"
                 onClick={() => setActiveSpeaker(spk)}
               >
                 {/* Gold aura hover glow */}
-                <div className="absolute inset-0 rounded-[20px] bg-gradient-to-b from-[#C9A15B]/0 via-[#C9A15B]/0 to-[#C9A15B]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
+                <div className="absolute inset-0 rounded-[22px] bg-gradient-to-b from-[#C9A15B]/0 via-[#C9A15B]/0 to-[#C9A15B]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
 
                 {/* Top Portrait Container */}
                 <div className="relative w-full h-[260px] bg-gradient-to-b from-[#FAF6ED] to-[#ECE2D0] p-4 flex items-center justify-center overflow-hidden border-b border-[#EBE3D3]">
@@ -206,12 +206,12 @@ export default function SpeakersSection() {
                 {/* Bottom Speaker Details */}
                 <div className="relative z-10 flex-1 p-5 flex flex-col justify-start bg-white">
                   {/* Speaker Name */}
-                  <h3 className="font-editorial text-[20px] sm:text-[21px] font-semibold text-[#10251D] group-hover:text-[#8C6D34] transition-colors duration-300 leading-snug line-clamp-1 mb-2">
+                  <h3 className="font-editorial text-[20px] sm:text-[21px] font-semibold text-[#10251D] group-hover:text-[#8C6D34] transition-colors duration-300 leading-snug line-clamp-2 min-h-[50px] mb-1.5">
                     {spk.name}
                   </h3>
 
                   {/* Speaker Designation */}
-                  <p className="font-sans text-[12.5px] sm:text-[13px] text-[#42544A] leading-[1.45] font-normal line-clamp-3">
+                  <p className="font-sans text-[12px] sm:text-[12.5px] text-[#42544A] leading-[1.45] font-normal line-clamp-3">
                     {spk.designation}
                   </p>
                 </div>
