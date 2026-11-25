@@ -28,20 +28,13 @@ const organizers = [
     image: "/organizers/aravind.png", 
     gradient: "from-[#00B894] to-[#7DFF70]" 
   },
-  // { 
-  //   name: "Vishwanathan", 
-  //   role: "FWC", 
-  //   org: "", 
-  //   image: "/organizers/vishwnathan.png", 
-  //   gradient: "from-[#3157F5] to-[#6558FF]" 
-  // },
-  // { 
-  //   name: "Ashok Reddy", 
-  //   role: "FWC", 
-  //   org: "", 
-  //   image: "/organizers/ashok reddy.png", 
-  //   gradient: "from-[#A83DFF] to-[#D45BFF]" 
-  // },
+  { 
+    name: "Ashok Reddy", 
+    role: "Core Team", 
+    org: "First World Community", 
+    image: "/organizers/ashok reddy.png", 
+    gradient: "from-[#4F46E5] to-[#8B5CF6]" 
+  },
   { 
     name: "Senthil K Kumar", 
     role: "Strategic Advisor", 
@@ -129,10 +122,10 @@ export default function OrganizingTeam() {
     });
   };
 
-  // 4-step pagination logic based on current X position
+  // Pagination logic based on current X position
   const activeIndex = useTransform(x, (currentX) => {
     const absX = Math.abs(currentX) % contentWidth;
-    return Math.floor((absX / contentWidth) * 4);
+    return Math.floor((absX / contentWidth) * organizers.length);
   });
 
   // Reveal variants
@@ -250,7 +243,7 @@ export default function OrganizingTeam() {
 
         {/* Pagination Indicators */}
         <div className="flex items-center justify-center gap-2 mt-4">
-          {[0, 1, 2, 3].map((i) => (
+          {organizers.map((_, i) => (
             <PaginationDot key={i} i={i} activeIndex={activeIndex} />
           ))}
         </div>
