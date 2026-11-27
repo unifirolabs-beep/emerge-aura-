@@ -179,6 +179,83 @@ export default function SponsorsSection() {
           ))}
         </motion.div>
       </div>
+
+      {/* ── Extended Section: Featured Exclusive Partners ── */}
+      <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mt-14 sm:mt-18 pt-12 sm:pt-16 border-t border-[#063522]/15">
+        <div className="flex flex-col items-center text-center mb-10 sm:mb-12">
+          <span className="text-[11px] sm:text-[12px] font-sans font-bold tracking-[0.24em] text-[#6B4A16] uppercase mb-2">
+            EXCLUSIVE PARTNERS
+          </span>
+          <h3 className="font-editorial text-[34px] sm:text-[44px] font-medium leading-[1.05] text-[#063522] tracking-tight">
+            Concert Sponsor & Media Partner
+          </h3>
+          <p className="font-sans text-[14px] sm:text-[16px] text-[#063522]/75 max-w-[520px] mt-2">
+            Celebrating our dedicated partners powering our cultural concert and state-wide media coverage.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+          {/* Card 1: Rhythmic Energy Concert Sponsor */}
+          <div className="group relative bg-white/95 rounded-[22px] border border-[#063522]/12 shadow-[0_8px_30px_rgba(6,53,34,0.06)] hover:shadow-[0_18px_45px_rgba(6,53,34,0.13)] hover:border-[#063522]/30 hover:-translate-y-1 transition-all duration-300 p-6 sm:p-8 flex flex-col items-center justify-between text-center backdrop-blur-sm">
+            {/* Category Pill */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#063522]/5 border border-[#063522]/10 text-[#063522] text-[11px] sm:text-[12px] font-sans font-bold tracking-[0.16em] uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4A33B]" />
+              RHYTHMIC ENERGY CONCERT SPONSOR
+            </div>
+
+            {/* Logo Image */}
+            <div className="relative w-full h-[150px] sm:h-[170px] flex items-center justify-center my-4 sm:my-6">
+              <Image
+                src="/RHYTHMIC ENERGY CONCERT SPONSOR.png"
+                alt="PMC Tech - Rhythmic Energy Concert Sponsor"
+                fill
+                sizes="(max-width: 768px) 85vw, 420px"
+                className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+
+            {/* Title & Tagline */}
+            <div className="w-full pt-4 border-t border-[#063522]/10">
+              <h4 className="font-editorial text-[22px] sm:text-[24px] font-semibold text-[#063522]">
+                PMC Tech
+              </h4>
+              <p className="font-sans text-[13px] sm:text-[14px] text-[#063522]/70 font-medium mt-0.5">
+                Inspire to Innovate
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2: Media Partner */}
+          <div className="group relative bg-white/95 rounded-[22px] border border-[#063522]/12 shadow-[0_8px_30px_rgba(6,53,34,0.06)] hover:shadow-[0_18px_45px_rgba(6,53,34,0.13)] hover:border-[#063522]/30 hover:-translate-y-1 transition-all duration-300 p-6 sm:p-8 flex flex-col items-center justify-between text-center backdrop-blur-sm">
+            {/* Category Pill */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#063522]/5 border border-[#063522]/10 text-[#063522] text-[11px] sm:text-[12px] font-sans font-bold tracking-[0.16em] uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4A33B]" />
+              MEDIA PARTNER
+            </div>
+
+            {/* Logo Image */}
+            <div className="relative w-full h-[150px] sm:h-[170px] flex items-center justify-center my-4 sm:my-6">
+              <Image
+                src="/MEDIA PARTNER.png"
+                alt="Ananda Vikatan - Media Partner"
+                fill
+                sizes="(max-width: 768px) 85vw, 420px"
+                className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+
+            {/* Title & Tagline */}
+            <div className="w-full pt-4 border-t border-[#063522]/10">
+              <h4 className="font-editorial text-[22px] sm:text-[24px] font-semibold text-[#063522]">
+                Ananda Vikatan
+              </h4>
+              <p className="font-sans text-[13px] sm:text-[14px] text-[#063522]/70 font-medium mt-0.5">
+                No. 1 Tamil Weekly
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

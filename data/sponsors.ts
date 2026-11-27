@@ -17,7 +17,7 @@ export const sponsorLogos: SponsorLogoItem[] = [
   {
     id: "pmctech",
     name: "PMC Tech",
-    src: "/sponsers/pmctech.jpeg",
+    src: "/RHYTHMIC ENERGY CONCERT SPONSOR.png",
     alt: "PMC Tech",
     tier: "Rhythmic Energy Enabler",
   },
@@ -89,6 +89,55 @@ export const sponsorLogos: SponsorLogoItem[] = [
     name: "IFIA Bharat",
     src: "/sponsers/ifiabharat.png",
     alt: "ifiabharat",
-    tier: "Ecosystem Partner"
-  }
+    tier: "Ecosystem Partner",
+  },
+  {
+    id: "indian-book-club",
+    name: "Indian Book Club",
+    src: "/sponsers/indian book club.png",
+    alt: "Indian Book Club",
+    tier: "Ecosystem Partner",
+  },
+  {
+    id: "nice",
+    name: "NICE",
+    src: "/sponsers/nice company.png",
+    alt: "NICE - Network of Indian Cultural Enterprises",
+    tier: "Ecosystem Partner",
+  },
+  {
+    id: "real-foods",
+    name: "Real Foods",
+    src: "/sponsers/real foods.png",
+    alt: "Real Foods",
+    tier: "Ecosystem Partner",
+  },
+  {
+    id: "red-arrow",
+    name: "Red Arrow",
+    src: "/sponsers/red arrow.png",
+    alt: "Red Arrow",
+    tier: "Ecosystem Partner",
+  },
+  {
+    id: "skill-angels",
+    name: "Skill Angels",
+    src: "/sponsers/skill angels.png",
+    alt: "Skill Angels",
+    tier: "Ecosystem Partner",
+  },
+  {
+    id: "village-technology-school",
+    name: "Village Technology School",
+    src: "/sponsers/village.png",
+    alt: "Village Technology School",
+    tier: "Ecosystem Partner",
+  },
+  {
+    id: "ananda-vikatan",
+    name: "Ananda Vikatan",
+    src: "/MEDIA PARTNER.png",
+    alt: "Ananda Vikatan - Media Partner",
+    tier: "Media Partner",
+  },
 ];
